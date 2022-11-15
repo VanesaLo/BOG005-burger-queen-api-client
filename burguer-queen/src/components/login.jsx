@@ -10,16 +10,16 @@ function Login() {
       </section>
 
       <section className="containerForm">
-        <form classId="formLogin">
-          <h2> Iniciar Sesión</h2>
-          <label>
+      <h2 className="TitleForm"> Iniciar Sesión</h2>
+        <form className="formLogin">
+         <label>
             Ingrese Email
             <input className="emailUser" type="email" placeholder="" />
           </label>
           <label>
             Ingrese Contraseña
             <input className="passwordUser" type="password" placeholder="" />
-          </label>
+          </label> 
           <button className="nextButton"> Siguiente </button>
         </form>
       </section>
