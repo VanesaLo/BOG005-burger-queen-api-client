@@ -1,13 +1,13 @@
 import './App.css'
-import Paginainicial from './componentes/vistainicial';
+import Login from './components/login.jsx';
 
 
 function App(){
   return (
    <div className='App'>
   
-    <h1>Inicio de sesión</h1>
-    < Paginainicial />
+    {/* <h1>Inicio de sesión</h1> */}
+    < Login />
     
    </div>
   );

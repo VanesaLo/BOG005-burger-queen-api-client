@@ -1,0 +1,26 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+.container {
+  display: flex;
+ 
+}
+
+.containerForm {
+  background-color: papayawhip;
+}
+/* 
+.contenedor-botton {
+    width: 60px;
+    height: 30px;
+} */
+
+/* .button-siguiente{
+    width: 60px;
+    height: 30px; 
+} */
+
+.logoImage {
+  width: 60%;
+}
