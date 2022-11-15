@@ -1,0 +1,30 @@
+.contenedor-principal {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+}
+
+.contenedor-ingreso {
+display: flex;
+flex-direction: column;
+position: absolute;
+left: 860px;
+} 
+/* 
+.contenedor-botton {
+    width: 60px;
+    height: 30px;
+} */
+
+/* .button-siguiente{
+    width: 60px;
+    height: 30px; 
+} */
+
+.imagen-logo {
+    width: 600px;
+    height: 500px;
+    display: flex;
+    
+
+}
