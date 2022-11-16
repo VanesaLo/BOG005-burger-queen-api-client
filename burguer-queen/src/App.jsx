@@ -6,7 +6,6 @@ function App(){
   return (
    <div className='App'>
   
-    {/* <h1>Inicio de sesión</h1> */}
     < Login />
     
    </div>
