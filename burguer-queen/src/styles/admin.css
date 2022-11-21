@@ -1,0 +1,43 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html,
+body {
+    font-family: 'Poppins', sans-serif;
+}
+
+#containerAdmin {
+    height: 100vh;
+    display: flex;
+    background: linear-gradient(256deg,
+            rgba(255, 222, 89, 1) 20%,
+            rgba(254, 170, 70, 1) 53%);
+}
+
+#containerHeader{
+margin: 10px;
+display: flex;
+}
+
+.logoImageAdmin{
+  height: 50px;
+  width: 50px;
+  border-radius: 100%;
+}
+.orderAdmin{
+display: flex;
+flex-direction: row;
+position: relative;
+left: 20cm;
+}
+
+.titleAdmin{
+display: flex;
+}
+
+.buttonAdmin{
+display: flex;
+}

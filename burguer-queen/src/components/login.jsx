@@ -12,7 +12,7 @@ function Login() {
 
   const onClickpassword = () => {
     alert("Por favor, contactate con el administrador");
-    return onClickpassword; 
+    return
   };
 
   const [email, setEmail] = useState(" ");
@@ -47,7 +47,6 @@ function Login() {
         else {
             errorMessage.innerHTML = 'Usuario no encontrado'
         }
-
     })
   }
 
