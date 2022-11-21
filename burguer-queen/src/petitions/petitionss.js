@@ -5,8 +5,8 @@ const URLapi= 'http://localhost:8080/';
 
 const loginUsers= (email, password) => {
     return axios.post(URLapi + 'login', {
-        email: "email", 
-        password: "password"
+        email,
+        password,
     })
 };
 
@@ -15,13 +15,14 @@ export {loginUsers};
 
 
 
-// function comunicationLogin() {
+// function LoginUsers() {
 //     const endPoint = 'http://localhost:8080/login'
 
 //     return fetch(endPoint, {
 //         method: "POST",
-//         body: JSON.stringify(data),
-//         headers: {
+//         body: JSON.stringify({email: "email", 
+//            password: "password"}),
+//             headers: {
 //             'Content-Type': 'application/json'
 //         }
 //     }).then(res => res.json())
@@ -29,4 +30,6 @@ export {loginUsers};
 //         .then(response => console.log('Success:', response));
 
 // } 
-// comunicationLogin().then(res => console.log("ultimo", res));
+// LoginUsers().then(res => console.log("ultimo", res));
+
+// export {LoginUsers};
