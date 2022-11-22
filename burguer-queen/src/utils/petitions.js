@@ -5,8 +5,8 @@ const URLapi= 'http://localhost:8080/';
 
 const loginUsers= (email, password) => {
     return axios.post(URLapi + 'login', {
-        email: "email", 
-        password: "password"
+        email, 
+        password
     })
 };
 
