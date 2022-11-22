@@ -27,17 +27,25 @@ display: flex;
   width: 50px;
   border-radius: 100%;
 }
+
 .orderAdmin{
 display: flex;
 flex-direction: row;
 position: relative;
 left: 20cm;
-text-decoration: none;
+list-style: none;
 color: black;
+align-content: space-around;
 }
+
 li{
-text-decoration: none;
-color: black;
+    padding-left: 4%;
+    padding-right: 4%;
+}
+
+a{
+    text-decoration: none;
+    color: black;
 }
 
 .titleAdmin{
@@ -45,11 +53,7 @@ display: flex;
 position: relative;
 }
 
-.buttonAdmin{
-display: flex;
-}
-
-.tablaAdmin{
+.tableAdmin{
 display: flex;
 justify-content: center;
 text-align: center;

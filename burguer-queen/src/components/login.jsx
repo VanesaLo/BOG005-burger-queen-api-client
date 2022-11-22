@@ -8,7 +8,8 @@ import { useNavigate } from "react-router-dom";
 function Login() {
   const navigate = useNavigate();
   
-   const onClickpassword = () => {
+   const onClickForget = (e) => {
+    e.preventDefault();
     alert("Por favor, contactate con el administrador");
     return
   };
@@ -23,7 +24,7 @@ function Login() {
         errorMessage.innerHTML = ''
 
         if (response.data.user.role === 'admin') {
-            navigationPag('/admin');
+            navigate('/admin');
         }
     })
     .catch((error) => {
@@ -65,11 +66,10 @@ function Login() {
             value={password}
             type="password"
             placeholder="Ingrese contraseña"
-            onChange={handleChangePass}
+            onChange={(e) => setPassword(e.target.value)}
           />
-          <button className="password" onClick={onClickpassword}>¿Olvidaste tu contraseña?</button>
+          <button className="password" onClick={onClickForget}>¿Olvidaste tu contraseña?</button>
           <p id= 'errorMessage'></p>
-          <button
           <button className="nextButton" type="submit">
             Siguiente
           </button>
@@ -79,4 +79,4 @@ function Login() {
   );
 }
 
-export {Login};
+export default Login;
