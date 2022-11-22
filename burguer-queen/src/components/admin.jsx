@@ -25,7 +25,7 @@ function Admin() {
         </header>
         
 
-        <table>
+        <table className="tablaAdmin">
         <thead>
          <tr>
          <th> Nombre </th>
@@ -33,8 +33,9 @@ function Admin() {
          <th> Status </th>
          </tr>
          <tr>
-         <td> Hola </td>
-         <td> como estas? </td>
+         <td> Andres </td>
+         <td> Mesero </td>
+         <td> Activo </td>
          </tr>
          </thead>
          </table>
