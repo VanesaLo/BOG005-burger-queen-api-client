@@ -1,38 +1,25 @@
 import React from "react";
 import "../styles/login.css";
 import image from "../images/Gourmet.jpg";
-import { loginUsers } from "../petitions/petitionss.js";
+import { loginUsers } from "../utils/petitions";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
-
 function Login() {
-
-  const navigationPag = useNavigate(); 
-
-  const onClickpassword = () => {
+  const navigate = useNavigate();
+  
+   const onClickpassword = () => {
     alert("Por favor, contactate con el administrador");
     return
   };
 
-  const [email, setEmail] = useState(" ");
-  const [password, setPassword] = useState("");
-
-  function handleChangeEmail(event) {
-    setEmail(event.target.value);
-    // console.log((event.target.value))
-  }
-  function handleChangePassword(event) {
-    setPassword(event.target.value);
-    // console.log((event.target.value))
-  }
-
   const handledSubmit = (e) => {
     e.preventDefault();
+    console.log(email, password);
 
     loginUsers(email, password)
-    .then((response) => {
-        const errorMessage = document.getElementById('errorMessage')
+      .then((response) => {
+       const errorMessage = document.getElementById('errorMessage')
         errorMessage.innerHTML = ''
 
         if (response.data.user.role === 'admin') {
@@ -48,7 +35,10 @@ function Login() {
             errorMessage.innerHTML = 'Usuario no encontrado'
         }
     })
-  }
+  };
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+
 
   return (
     <div className="container">
@@ -62,22 +52,27 @@ function Login() {
           <label>Correo</label>
           <input
             className="emailUser"
-            type="email"
+            required
             value={email}
+            type="email"
             placeholder="Ingrese correo"
-            onChange={handleChangeEmail} />
-
+            onChange={(e) => setEmail(e.target.value)}
+          />
           <label>Contraseña</label>
-          <input className="passwordUser" 
-          type="password" 
-          value={password} 
-          placeholder="Ingrese contraseña" 
-          onChange={handleChangePassword} />
+          <input
+            className="passwordUser"
+            required
+            value={password}
+            type="password"
+            placeholder="Ingrese contraseña"
+            onChange={handleChangePass}
+          />
           <button className="password" onClick={onClickpassword}>¿Olvidaste tu contraseña?</button>
           <p id= 'errorMessage'></p>
           <button
-            className="nextButton"
-            type="submit"> Siguiente</button>
+          <button className="nextButton" type="submit">
+            Siguiente
+          </button>
         </form>
       </section>
     </div>
