@@ -7,6 +7,11 @@ import { useNavigate } from "react-router-dom";
 
 function Login() {
   const navigate = useNavigate();
+  
+   const onClickpassword = () => {
+    alert("Por favor, contactate con el administrador");
+    return
+  };
 
   const handledSubmit = (e) => {
     e.preventDefault();
@@ -14,22 +19,26 @@ function Login() {
 
     loginUsers(email, password)
       .then((response) => {
-        console.log(response);
+       const errorMessage = document.getElementById('errorMessage')
+        errorMessage.innerHTML = ''
 
-        if (response.data.user.role === "admin") {
-          navigate("/admin");
+        if (response.data.user.role === 'admin') {
+            navigationPag('/admin');
         }
-      })
-      .catch((err) => {
-        console.log(err);
-      });
+    })
+    .catch((error) => {
+        console.log(error)
+        if (error.response.data === 'Incorrect password') {
+            errorMessage.innerHTML = 'Contraseña incorrecta'
+        }
+        else {
+            errorMessage.innerHTML = 'Usuario no encontrado'
+        }
+    })
   };
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
-  function handleChangePass(event) {
-    setPassword(event.target.value);
-  }
 
   return (
     <div className="container">
@@ -58,7 +67,9 @@ function Login() {
             placeholder="Ingrese contraseña"
             onChange={handleChangePass}
           />
-          <h6 className="password">¿Olvidaste tu contraseña?</h6>
+          <button className="password" onClick={onClickpassword}>¿Olvidaste tu contraseña?</button>
+          <p id= 'errorMessage'></p>
+          <button
           <button className="nextButton" type="submit">
             Siguiente
           </button>
@@ -68,4 +79,4 @@ function Login() {
   );
 }
 
-export default Login;
+export {Login};
