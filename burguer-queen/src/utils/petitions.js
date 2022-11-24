@@ -10,7 +10,37 @@ const loginUsers= (email, password) => {
     })
 };
 
-export {loginUsers};
+// const getUser = () =>{
+//     return JSON.parse(sessionStorage.getItem('user'))
+// };
+
+// const getToken =()=>{
+//     return getUser().accessToken
+// };
+
+// function getListUsers () {
+//     return axios.get(URLapi + 'users', {
+//         headers: {
+//             Authorization: 'Bearer' + getToken
+//         }
+//     })
+// }
+
+const getUser = async (accessToken) => {
+    // let users = JSON.parse(sessionStorage.getItem('user'));
+    // let getToken = users + (accessToken);
+    return await axios({
+        method: 'GET',
+        url: URLapi + 'users',
+        headers:{
+            'content-type': 'application/json',
+            authorization : `Bearer ${accessToken}`
+    }
+    })
+}
+
+
+export {loginUsers, getUser};
 
 
 

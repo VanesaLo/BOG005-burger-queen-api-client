@@ -21,7 +21,10 @@ function Login() {
     loginUsers(email, password)
       .then((response) => {
        const errorMessage = document.getElementById('errorMessage')
-        errorMessage.innerHTML = ''
+        errorMessage.innerHTML = '';
+
+        localStorage.setItem('token',JSON.stringify(response.data.accessToken));
+       
 
         if (response.data.user.role === 'admin') {
             navigate('/admin');
@@ -32,9 +35,12 @@ function Login() {
         if (error.response.data === 'Incorrect password') {
             errorMessage.innerHTML = 'Contraseña incorrecta'
         }
-        else {
+        else if (error.response.data === 'Password is too short') {
+          errorMessage.innerHTML = 'La contraseña es muy corta'
+      }
+        else (error.response.data === 'Cannot find user') 
             errorMessage.innerHTML = 'Usuario no encontrado'
-        }
+      
     })
   };
   const [email, setEmail] = useState("");

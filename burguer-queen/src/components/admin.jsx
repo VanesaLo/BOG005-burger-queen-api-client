@@ -2,9 +2,27 @@ import React from "react";
 import "../styles/admin.css";
 import image from "../images/Gourmet.jpg";
 import imageIcon from "../images/cerrar-sesion.png";
-
+import { useNavigate } from "react-router-dom";
+import { getUser} from "../utils/petitions";
 
 function Admin() {
+  const navigate = useNavigate();
+
+  const buttonOut = (e) => {
+    e.preventDefault();
+    navigate("/");
+  };
+
+  const token = JSON.parse( localStorage.getItem('token'));
+        console.log(token);
+
+  getUser (token)
+    .then((res) => {
+      console.log(res.data)
+    })
+    .catch(eer=>console.log('caducó token'))
+  
+
   return (
     <section id="containerAdmin">
       <header id="containerHeader">
@@ -19,7 +37,7 @@ function Admin() {
               <a href="">Usuarios </a>
             </li>
             <li>
-              <a href="">Cerrar Sesion</a>
+              <img id='logoutIcon' onClick={buttonOut} src={imageIcon} alt='logout'/>
             </li>
           </ul>
         </nav>
