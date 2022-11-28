@@ -53,7 +53,7 @@ function Login() {
 
       <section className="containerForm">
         <form className="formLogin" onSubmit={handledSubmit}>
-          <h2 className="TitleForm"> Iniciar Sesión</h2>
+          {/* <h2 className="TitleForm"> Iniciar Sesión</h2> */}
           <label>Correo</label>
           <input
             className="emailUser"
@@ -77,7 +77,7 @@ function Login() {
           </a>
           <p id="errorMessage"></p>
           <button className="nextButton" type="submit">
-            Siguiente
+            Iniciar sesión
           </button>
         </form>
       </section>
