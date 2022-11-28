@@ -7,11 +7,11 @@ import { useNavigate } from "react-router-dom";
 
 function Login() {
   const navigate = useNavigate();
-  
-   const onClickForget = (e) => {
+
+  const onClickForget = (e) => {
     e.preventDefault();
     alert("Por favor, contactate con el administrador");
-    return
+    return;
   };
 
   const handledSubmit = (e) => {
@@ -20,32 +20,30 @@ function Login() {
 
     loginUsers(email, password)
       .then((response) => {
-       const errorMessage = document.getElementById('errorMessage')
-        errorMessage.innerHTML = '';
+        const errorMessage = document.getElementById("errorMessage");
+        errorMessage.innerHTML = "";
 
-        localStorage.setItem('token',JSON.stringify(response.data.accessToken));
-       
+        localStorage.setItem(
+          "token",
+          JSON.stringify(response.data.accessToken)
+        );
 
-        if (response.data.user.role === 'admin') {
-            navigate('/admin');
+        if (response.data.user.role === "admin") {
+          navigate("/admin");
         }
-    })
-    .catch((error) => {
-        console.log(error)
-        if (error.response.data === 'Incorrect password') {
-            errorMessage.innerHTML = 'Contraseña incorrecta'
-        }
-        else if (error.response.data === 'Password is too short') {
-          errorMessage.innerHTML = 'La contraseña es muy corta'
-      }
-        else (error.response.data === 'Cannot find user') 
-            errorMessage.innerHTML = 'Usuario no encontrado'
-      
-    })
+      })
+      .catch((error) => {
+        console.log(error);
+        if (error.response.data === "Incorrect password") {
+          errorMessage.innerHTML = "Contraseña incorrecta";
+        } else if (error.response.data === "Password is too short") {
+          errorMessage.innerHTML = "La contraseña es muy corta";
+        } else error.response.data === "Cannot find user";
+        errorMessage.innerHTML = "Usuario no encontrado";
+      });
   };
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-
 
   return (
     <div className="container">
@@ -54,8 +52,8 @@ function Login() {
       </section>
 
       <section className="containerForm">
-        <h2 className="TitleForm"> Iniciar Sesión</h2>
         <form className="formLogin" onSubmit={handledSubmit}>
+          <h2 className="TitleForm"> Iniciar Sesión</h2>
           <label>Correo</label>
           <input
             className="emailUser"
@@ -74,8 +72,10 @@ function Login() {
             placeholder="Ingrese contraseña"
             onChange={(e) => setPassword(e.target.value)}
           />
-          <button className="password" onClick={onClickForget}>¿Olvidaste tu contraseña?</button>
-          <p id= 'errorMessage'></p>
+          <a className="forgetPassword" onClick={onClickForget}>
+            ¿Olvidaste tu contraseña?
+          </a>
+          <p id="errorMessage"></p>
           <button className="nextButton" type="submit">
             Siguiente
           </button>

@@ -2,20 +2,19 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
- 
 }
 html,
 body {
-    font-family: 'Poppins', sans-serif;
+  font-family: "Poppins", sans-serif;
 }
 
 .logoImage {
-    height: 100vh;
-    width: 50vw;
+  height: 100vh;
+  width: 50vw;
 }
 
 .container {
-  height: 100vh;
+  height: 100%;
   width: 100%;
   display: flex;
   background: linear-gradient(
@@ -26,31 +25,30 @@ body {
 }
 
 .TitleForm {
-font-size: 30px;
-margin-bottom: 20%;
+  font-size: 30px;
+  margin-bottom: 20%;
 }
 
 .containerForm {
-    font-size: 20px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    margin-left: 18%;
+  font-size: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-left: 15%; 
+   
 }
 
-.formLogin{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin-bottom: 100px;
+.formLogin {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
-.nextButton{
+.nextButton {
   font-size: 15px;
   font-weight: bold;
-  display:flex; 
-  position: relative;
+  display: flex;
+  /* position: relative; */
   margin-top: 50px;
   width: 100px;
   height: 40px;
@@ -58,34 +56,61 @@ margin-bottom: 20%;
   justify-content: center;
   border-radius: 10px;
   border: none;
-  background-color: #D9D9D9;
+  background-color: #d9d9d9;
 }
-label{
+label {
   font-weight: bold;
 }
 
-.emailUser{
-  width: 220px;
-  height: 30px;
+.emailUser {
+  width: 14rem;
+  height: 3em;
+  padding: 6px;
   margin-top: 10px;
-  margin-bottom:10px;
-  background-color: #D9D9D9;
+  margin-bottom: 10px;
+  background-color: #d9d9d9;
   border: none;
+  border-radius: 5px;
 }
 
-.password{
+.forgetPassword {
   margin-top: 2px;
   border: none;
   background-color: transparent;
   text-decoration: underline;
-  color: blue; 
+  color: blue;
+  font-size: small;
 }
 
-.passwordUser{
-  width: 220px;
-  height: 30px;
+.passwordUser {
+  width: 14rem;
+  height: 3em;
+  padding: 6px;
   margin-top: 10px;
-  margin-bottom:10px;
-  background-color: #D9D9D9;
+  margin-bottom: 10px;
+  background-color: #d9d9d9;
   border: none;
+  border-radius: 5px;
 }
+
+@media only screen and (max-width: 600px) {
+  .container {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  .logoImage {
+    height: 5cm;
+    width: 5cm;
+    border-radius: 50%;
+    margin-bottom: 2em;
+    box-shadow: 6px 2px 12px white;
+  }
+  .containerForm {
+    display: flex;
+    margin: 0;
+  }
+}
+

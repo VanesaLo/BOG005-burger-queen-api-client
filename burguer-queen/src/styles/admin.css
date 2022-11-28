@@ -61,8 +61,7 @@ a {
 
 .tableAdmin {
   height: 20vh;
-  width: 20%;
-  display: flex;
+  width: 30%;
   justify-content: center;
   text-align: center;
   align-items: center;
@@ -77,9 +76,18 @@ td {
   border: 1px solid black;
 }
 
-@media only screen and (max-width: 768px) {
-    /* For mobile phones: */
-     body{
-        width: 100%;
-     } 
+@media only screen and (max-width: 600px) {
+
+  #containerHeader{
+    display: flex;
+    width: 100vh;
+    justify-content: center;
+    align-items: center;
   }
+
+  .tableAdmin{
+    height: 20vh;
+    width: 50vw;
+  }
+
+}

@@ -3,25 +3,34 @@ import "../styles/admin.css";
 import image from "../images/Gourmet.jpg";
 import imageIcon from "../images/cerrar-sesion.png";
 import { useNavigate } from "react-router-dom";
-import { getUser} from "../utils/petitions";
+import { getUser } from "../utils/petitions";
+import AdminTable from "./adminTable";
+import { useState, useEffect } from "react";
 
 function Admin() {
   const navigate = useNavigate();
+  const token = JSON.parse(localStorage.getItem("token"));
+
+  const  [users, setUsers] = useState([]);
 
   const buttonOut = (e) => {
     e.preventDefault();
     navigate("/");
   };
 
-  const token = JSON.parse( localStorage.getItem('token'));
-        console.log(token);
-
-  getUser (token)
+  const admiGetUsers = () => {
+    getUser(token)
     .then((res) => {
-      console.log(res.data)
+      console.log(res.data);
+      setUsers(res.data)
     })
-    .catch(eer=>console.log('caducó token'))
-  
+    .catch((eer) => console.log("caducó token"));
+  }
+
+ useEffect(()=>{
+  admiGetUsers();
+  }, [])
+
 
   return (
     <section id="containerAdmin">
@@ -37,26 +46,20 @@ function Admin() {
               <a href="">Usuarios </a>
             </li>
             <li>
-              <img id='logoutIcon' onClick={buttonOut} src={imageIcon} alt='logout'/>
+              <img
+                id="logoutIcon"
+                onClick={buttonOut}
+                src={imageIcon}
+                alt="logout"
+              />
             </li>
           </ul>
         </nav>
       </header>
 
-      <table className="tableAdmin">
-        <thead>
-          <tr>
-            <th> Nombre </th>
-            <th> Cargo </th>
-            <th> Status </th>
-          </tr>
-          <tr>
-            <td> Andres </td>
-            <td> Mesero </td>
-            <td> Activo </td>
-          </tr>
-        </thead>
-      </table>
+      <AdminTable
+      rows={users}
+      ></AdminTable>
     </section>
   );
 }
