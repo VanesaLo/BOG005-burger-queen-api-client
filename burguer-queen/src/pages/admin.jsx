@@ -1,18 +1,17 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import "../styles/admin.css";
 import image from "../images/Gourmet.jpg";
 import imageIcon from "../images/cerrar-sesion.png";
 import { useNavigate } from "react-router-dom";
 import { getUser } from "../utils/petitions";
-import AdminTable from "./adminTable";
-import { useState, useEffect } from "react";
-import { Modal } from "./modal";
+import AdminTable from "../components/adminTable";
+
 
 function Admin() {
   const navigate = useNavigate();
   const token = JSON.parse(localStorage.getItem("token"));
 
-  const  [users, setUsers] = useState([]);
+  const [users, setUsers] = useState([]);
 
   const buttonOut = (e) => {
     e.preventDefault();
@@ -21,23 +20,22 @@ function Admin() {
 
   const admiGetUsers = () => {
     getUser(token)
-    .then((res) => {
-      console.log(res.data);
-      setUsers(res.data)
-    })
-    .catch((eer) => console.log("caducó token"));
-  }
+      .then((res) => {
+        console.log(res.data);
+        setUsers(res.data);
+      })
+      .catch((eer) => console.log("caducó token"));
+  };
 
- useEffect(()=>{
-  admiGetUsers();
-  }, [])
-
+  useEffect(() => {
+    admiGetUsers();
+  }, []);
 
   return (
     <section id="containerAdmin">
       <header id="containerHeader">
         <img className="logoImageAdmin" src={image} alt="foto del logo" />
-        <h1 className="titleAdmin">Gourmet Queen</h1>
+        <h1 className="titleAdmin"> Gourmet Queen </h1>
         <nav className="navAdmin">
           <ul className="orderAdmin">
             <li>
@@ -58,9 +56,7 @@ function Admin() {
         </nav>
       </header>
 
-      <AdminTable
-      rows={users}
-      ></AdminTable>
+      <AdminTable rows={users}></AdminTable>
     </section>
 
   );

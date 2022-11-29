@@ -1,4 +1,5 @@
 import React from "react";
+import { ModalUsers } from "./modalUsers";
 
 function AdminTable({ rows }) {
   return (
@@ -16,10 +17,12 @@ function AdminTable({ rows }) {
             <tr key={index}>
               <td>{row.email}</td>
               <td>{row.role}</td>
+              <ModalUsers></ModalUsers> 
             </tr>
           ))}
         </tbody>
       </table>
+      
     </div>
   );
 }

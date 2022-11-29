@@ -47,10 +47,8 @@ body {
 .nextButton {
   font-size: 15px;
   font-weight: bold;
-  display: flex;
-  /* position: relative; */
   margin-top: 50px;
-  width: 100px;
+  width: 4cm;
   height: 40px;
   align-items: center;
   justify-content: center;
@@ -105,7 +103,7 @@ label {
     height: 5cm;
     width: 5cm;
     border-radius: 50%;
-    margin-bottom: 2em;
+    margin-bottom: 3em;
     box-shadow: 6px 2px 12px white;
   }
   .containerForm {

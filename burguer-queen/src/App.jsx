@@ -1,6 +1,6 @@
 import { Routes, Route} from "react-router-dom";
-import Login from './components/login.jsx';
-import Admin from './components/admin.jsx';
+import Login from './pages/login';
+import Admin from './pages/admin';
 
 
 
