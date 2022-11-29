@@ -6,6 +6,7 @@ import { useNavigate } from "react-router-dom";
 import { getUser } from "../utils/petitions";
 import AdminTable from "./adminTable";
 import { useState, useEffect } from "react";
+import { Modal } from "./modal";
 
 function Admin() {
   const navigate = useNavigate();
@@ -61,6 +62,7 @@ function Admin() {
       rows={users}
       ></AdminTable>
     </section>
+
   );
 }
 
