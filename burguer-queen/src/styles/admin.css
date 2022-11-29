@@ -11,8 +11,9 @@ body {
 
 #containerAdmin {
   height: 100vh;
+  width: 100vw;
   display: flex;
-  background-image: url('../images/background.jpg');
+  background-image: url("../images/background.jpg");
   flex-direction: column;
   align-items: center;
 }
@@ -32,9 +33,10 @@ body {
   border-radius: 100%;
 }
 
-#logoutIcon{
-    height: 30px;
-    width: 30px;
+#logoutIcon {
+  height: 30px;
+  width: 30px;
+  margin-left: 5%;
 }
 
 .orderAdmin {
@@ -54,10 +56,6 @@ a {
   color: black;
 }
 
-.titleAdmin {
-  display: flex;
-  position: relative;
-}
 
 .tableAdmin {
   height: 20vh;
@@ -77,12 +75,13 @@ td {
 }
 
 @media only screen and (max-width: 600px) {
-
   #containerHeader{
     display: flex;
     width: 100vh;
+    height: 25vh;
     justify-content: center;
     align-items: center;
+    flex-direction: column;
   }
 
   .tableAdmin{
@@ -90,4 +89,16 @@ td {
     width: 50vw;
   }
 
-}
+  .navAdmin{
+    width: 100vw;
+    justify-content: center;
+    margin-top: 1%;
+  }
+  #logoutIcon{
+    position: absolute;
+    right: 1rem;
+    top: 1rem;
+  }
+
+}  
+

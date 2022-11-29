@@ -6,7 +6,6 @@ import { useNavigate } from "react-router-dom";
 import { getUser } from "../utils/petitions";
 import AdminTable from "../components/adminTable";
 
-
 function Admin() {
   const navigate = useNavigate();
   const token = JSON.parse(localStorage.getItem("token"));
@@ -44,21 +43,13 @@ function Admin() {
             <li>
               <a href="">Usuarios </a>
             </li>
-            <li>
-              <img
-                id="logoutIcon"
-                onClick={buttonOut}
-                src={imageIcon}
-                alt="logout"
-              />
-            </li>
           </ul>
         </nav>
+        <img id="logoutIcon" onClick={buttonOut} src={imageIcon} alt="logout" />
       </header>
 
       <AdminTable rows={users}></AdminTable>
     </section>
-
   );
 }
 
