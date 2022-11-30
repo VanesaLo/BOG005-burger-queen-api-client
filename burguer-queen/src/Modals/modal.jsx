@@ -1,15 +1,8 @@
 import React from "react";
 import "./modal.css";
 
-const Modal = ({
-  isOpen,
-  closeModal,
-  children,
-  title,
-  space1,
-  space2,
-  space3,
-}) => {
+const Modal = ({ isOpen, closeModal, children, title }) => {
+  
   return (
     <div className={`modal ${isOpen && "modal-open"}`}>
       <form className="formModal">
@@ -17,11 +10,11 @@ const Modal = ({
           X
         </button>
         <h1>{title}</h1>
-        <label>{space1}</label>
+        <label>Role</label>
         <input placeholder="" />
-        <label>{space2}</label>
+        <label>Correo</label>
         <input placeholder="" />
-        <label>{space3}</label>
+        <label>Contraseña</label>
         <input placeholder="" />
         <button>Finalizar</button>
         {children}

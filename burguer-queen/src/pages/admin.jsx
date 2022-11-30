@@ -4,7 +4,8 @@ import image from "../images/Gourmet.jpg";
 import imageIcon from "../images/cerrar-sesion.png";
 import { useNavigate } from "react-router-dom";
 import { getUser } from "../utils/petitions";
-import AdminTable from "../components/adminTable";
+import AdminTable from "../components/usersTable";
+import { CreateUser } from "../components/createUser";
 
 function Admin() {
   const navigate = useNavigate();
@@ -31,7 +32,7 @@ function Admin() {
   }, []);
 
   return (
-    <section id="containerAdmin">
+  <section id="containerAdmin">
       <header id="containerHeader">
         <img className="logoImageAdmin" src={image} alt="foto del logo" />
         <h1 className="titleAdmin"> Gourmet Queen </h1>
@@ -41,14 +42,14 @@ function Admin() {
               <a href="">Productos</a>
             </li>
             <li>
-              <a href="">Usuarios </a>
+              <a href="">usuarios</a>
             </li>
-          </ul>
-        </nav>
-        <img id="logoutIcon" onClick={buttonOut} src={imageIcon} alt="logout" />
-      </header>
-
-      <AdminTable rows={users}></AdminTable>
+        </ul>
+      </nav>
+      <img id="logoutIcon" onClick={buttonOut} src={imageIcon} alt="logout" />
+    </header>
+    <AdminTable rows={users}></AdminTable>
+    <CreateUser></CreateUser>
     </section>
   );
 }

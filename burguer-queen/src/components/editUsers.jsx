@@ -3,7 +3,7 @@ import Modal from "../Modals/modal";
 import useModal from "../Modals/useModal";
 import editar from "../images/editar.png";
 
-function ModalUsers() {
+function EditUsers() {
   const [isOpenModal, openModal, closeModal] = useModal(false);
 
   return (
@@ -16,9 +16,6 @@ function ModalUsers() {
       />
       <Modal
         title="Editar Usuarios"
-        space1="Role"
-        space2="Correo"
-        space3="Contraseña"
         isOpen={isOpenModal}
         closeModal={closeModal}
       ></Modal>
@@ -26,4 +23,4 @@ function ModalUsers() {
   );
 }
 
-export { ModalUsers };
+export { EditUsers };
