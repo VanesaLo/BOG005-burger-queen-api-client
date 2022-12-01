@@ -1,7 +1,7 @@
 import React from "react";
 import "./modal.css";
 
-const Modal = ({ isOpen, closeModal, children, title }) => {
+const ModalProducts = ({ isOpen, closeModal, children, title }) => {
   return (
     <div className={`modal ${isOpen && "modal-open"}`}>
       <form className="formModal">
@@ -9,11 +9,13 @@ const Modal = ({ isOpen, closeModal, children, title }) => {
           X
         </button>
         <h1>{title}</h1>
-        <label>Role</label>
+        <label>Nombre</label>
         <input placeholder="" />
-        <label>Correo</label>
+        <label>Precio</label>
         <input placeholder="" />
-        <label>Contraseña</label>
+        <label>Imagen</label>
+        <input placeholder="" />
+        <label>Tipo</label>
         <input placeholder="" />
         <button>Finalizar</button>
         {children}
@@ -22,4 +24,4 @@ const Modal = ({ isOpen, closeModal, children, title }) => {
   );
 };
 
-export default Modal;
+export default ModalProducts;

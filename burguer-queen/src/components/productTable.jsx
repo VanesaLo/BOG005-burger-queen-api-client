@@ -1,16 +1,18 @@
 import React from "react";
-
+import ModalProducts from "../Modals/modalProducts";
+import { EditProducts } from "./editProducts";
 
 function TableProducts({ rows }) {
   return (
     <div>
-      <table className="tableProduct">
+      <table className="tableAdmin">
         <thead>
           <tr>
             <th> name</th>
             <th> price</th>
             <th> imagen </th>
             <th> Tipo </th>
+            <th> Opciones </th>
           </tr>
         </thead>
         <tbody>
@@ -20,6 +22,7 @@ function TableProducts({ rows }) {
               <td>{row.price}</td>
               <td>{row.image}</td>
               <td>{row.type}</td>
+              <EditProducts />
             </tr>
           ))}
         </tbody>

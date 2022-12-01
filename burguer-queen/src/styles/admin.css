@@ -9,7 +9,7 @@ body {
   font-family: "Poppins", sans-serif;
 }
 
-#containerAdmin {
+.containerAdmin {
   height: 100vh;
   width: 100vw;
   display: flex;
@@ -56,7 +56,6 @@ a {
   color: black;
 }
 
-
 .tableAdmin {
   height: 20vh;
   width: 30%;
@@ -77,21 +76,21 @@ td {
   border-radius: 4%;
 }
 
-.btnCreateUser{
+.btnCreateUser {
   height: 3rem;
   width: 8rem;
   border-radius: 13%;
   border: none;
-  background-color: #FFDE49;
+  background-color: #ffde49;
   font-size: medium;
 }
 
-.titleCreateUser{
+.titleCreateUser {
   color: #fff;
 }
 
 @media only screen and (max-width: 600px) {
-  #containerHeader{
+  #containerHeader {
     display: flex;
     width: 100vh;
     height: 25vh;
@@ -100,21 +99,19 @@ td {
     flex-direction: column;
   }
 
-  .tableAdmin{
+  .tableAdmin {
     height: 20vh;
     width: 50vw;
   }
 
-  .navAdmin{
+  .navAdmin {
     width: 100vw;
     justify-content: center;
     margin-top: 1%;
   }
-  #logoutIcon{
+  #logoutIcon {
     position: absolute;
     right: 1rem;
     top: 1rem;
   }
-
-}  
-
+}
