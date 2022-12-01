@@ -1,25 +1,31 @@
-// import React from "react";
+import React from "react";
 
-// function TableBody({email, role, options}) {
 
-//   return (
-//     <table>
-//       <thead>
-//         <tr>
-//           <th> {email} </th>
-//           <th> {role} </th>
-//           <th> {options} </th>
-//         </tr>
-//       </thead>
-//       <tbody>
-//         {/* <tr>
-//           <td> {user.id} </td>
-//           <td> {user.name} </td>
-//           <td> {user.role} </td>
-//         </tr> */}
-//       </tbody>
-//     </table>
-//   );
-// }
+function TableProducts({ rows }) {
+  return (
+    <div>
+      <table className="tableProduct">
+        <thead>
+          <tr>
+            <th> name</th>
+            <th> price</th>
+            <th> imagen </th>
+            <th> Tipo </th>
+          </tr>
+        </thead>
+        <tbody>
+          {rows.map((row, index) => (
+            <tr key={index}>
+              <td>{row.name}</td>
+              <td>{row.price}</td>
+              <td>{row.image}</td>
+              <td>{row.type}</td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
+    </div>
+  );
+}
 
-// export { TableBody };
+export default TableProducts;

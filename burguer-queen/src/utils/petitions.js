@@ -22,8 +22,18 @@ const getUser = async (accessToken) => {
     })
 }
 
+const getProducts = async (accessToken) => {
+    return await axios({
+        method: 'GET',
+        url: URLapi + 'products',
+        headers:{
+            'content-type': 'application/json',
+            authorization : `Bearer ${accessToken}`
+    }
+    })
+}
 
-export {loginUsers, getUser};
+export {loginUsers, getUser, getProducts};
 
 
 
