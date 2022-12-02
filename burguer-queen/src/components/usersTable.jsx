@@ -7,9 +7,9 @@ function AdminTable({ rows }) {
       <table className="tableAdmin">
         <thead>
           <tr>
-            <th> email</th>
-            <th> role</th>
-            <th> opciones</th>
+            <th> Email</th>
+            <th> Role</th>
+            <th> Opciones</th>
           </tr>
         </thead>
         <tbody>

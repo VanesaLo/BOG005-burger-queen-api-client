@@ -6,11 +6,10 @@ import "../styles/admin.css";
 import { CreateProduct } from "../components/createProduct";
 
 function Products() {
-  const token = JSON.parse(localStorage.getItem("token"));
   const [products, setProducts] = useState([]);
 
   const admiGetProduct = () => {
-    getProducts(token)
+    getProducts()
       .then((res) => {
         console.log(res.data);
         setProducts(res.data);

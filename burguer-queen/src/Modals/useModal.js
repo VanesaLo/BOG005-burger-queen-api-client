@@ -7,8 +7,7 @@ const useModal = (initialValue = false) =>{
         setIsOpenModal(true);
     }
 
-    const closeModal = (e) => {
-        e.preventDefaul();
+    const closeModal = () => {
         setIsOpenModal(false);
     }
 

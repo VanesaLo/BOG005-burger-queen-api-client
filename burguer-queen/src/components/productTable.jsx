@@ -1,5 +1,4 @@
 import React from "react";
-import ModalProducts from "../Modals/modalProducts";
 import { EditProducts } from "./editProducts";
 
 function TableProducts({ rows }) {
@@ -8,9 +7,9 @@ function TableProducts({ rows }) {
       <table className="tableAdmin">
         <thead>
           <tr>
-            <th> name</th>
-            <th> price</th>
-            <th> imagen </th>
+            <th> Name</th>
+            <th> Price</th>
+            <th> Imagen </th>
             <th> Tipo </th>
             <th> Opciones </th>
           </tr>

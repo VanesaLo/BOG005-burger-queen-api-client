@@ -2,9 +2,15 @@ import React from "react";
 import "./modal.css";
 
 const ModalProducts = ({ isOpen, closeModal, children, title }) => {
+
+  function handledSubmit(e){
+    e.preventDefault();
+    closeModal();
+  }
+
   return (
     <div className={`modal ${isOpen && "modal-open"}`}>
-      <form className="formModal">
+      <form className="formModal" onSubmit={handledSubmit}>
         <button className="closeModal" onClick={closeModal}>
           X
         </button>

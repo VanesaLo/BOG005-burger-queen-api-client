@@ -1,17 +1,17 @@
 import React, { useState, useEffect } from "react";
 import "../styles/admin.css";
-import { getUser } from "../utils/petitions";
+import { getUsers } from "../utils/petitions";
 import AdminTable from "../components/usersTable";
-import { CreateUser } from "../components/createUser";
+import { CreateUsers } from "../components/createUser";
 import { HeaderAdmin } from "../components/headerAdmin";
 
 function Admin() {
-  const token = JSON.parse(localStorage.getItem("token"));
+
 
   const [users, setUsers] = useState([]);
 
   const admiGetUsers = () => {
-    getUser(token)
+    getUsers()
       .then((res) => {
         console.log(res.data);
         setUsers(res.data);
@@ -29,7 +29,7 @@ function Admin() {
 
       <AdminTable rows={users}></AdminTable>
 
-      <CreateUser />
+      <CreateUsers />
     </section>
   );
 }

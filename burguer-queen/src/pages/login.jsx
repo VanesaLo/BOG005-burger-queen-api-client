@@ -23,14 +23,16 @@ function Login() {
         const errorMessage = document.getElementById("errorMessage");
         errorMessage.innerHTML = "";
 
-        localStorage.setItem(
-          "token",
-          JSON.stringify(response.data.accessToken)
-        );
+        localStorage.setItem("token", response.data.accessToken);
+
+        localStorage.setItem("user", JSON.stringify(response.data.user));
 
         if (response.data.user.role === "admin") {
           navigate("/admin");
         }
+        // if (response.data.user.role === "admin") {
+        //   navigate("/waiter");
+        // }
       })
       .catch((error) => {
         console.log(error);
@@ -53,7 +55,6 @@ function Login() {
 
       <section className="containerForm">
         <form className="formLogin" onSubmit={handledSubmit}>
-          {/* <h2 className="TitleForm"> Iniciar Sesión</h2> */}
           <label>Correo</label>
           <input
             className="emailUser"
