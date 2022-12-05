@@ -4,7 +4,12 @@ import { Header } from "../components/header";
 
 function Waiter(){
     return (
+        <>
         <Header/>
+        <section>
+            Desayuno
+        </section>
+        </>
     )
 }
 

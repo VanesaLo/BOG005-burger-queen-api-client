@@ -1,6 +1,28 @@
 import React from "react";
 import "./modal.css";
 
+
+function EditUsers(props) {
+
+  function handleChangeEditModal(event) {
+    props.setDataEditModal({
+      ...props.dataEditModal,
+      [event.target.name]: event.target.value
+    })
+  }
+}
+
+  function handleSubmitEditModal(event) {
+    event.preventDefault()
+
+    editUser(props.dataEditModal)
+      .then((response) => {
+        console.log(response)
+      })
+    }
+  const [isOpenModal, openModal, closeModal] = useModal(false);
+
+
 const Modal = ({ isOpen, closeModal, children, title }) => {
 
 function handledSubmit(e){

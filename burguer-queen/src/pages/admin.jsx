@@ -1,8 +1,7 @@
 import React, { useState, useEffect } from "react";
 import "../styles/admin.css";
 import { getUsers } from "../utils/petitions";
-import AdminTable from "../components/usersTable";
-import { CreateUsers } from "../components/createUser";
+import UsersTable from "../components/usersTable";
 import { HeaderAdmin } from "../components/headerAdmin";
 
 function Admin() {
@@ -27,9 +26,8 @@ function Admin() {
     <section className="containerAdmin">
       <HeaderAdmin />
 
-      <AdminTable rows={users}></AdminTable>
+      <UsersTable rows={users} admiGetUsers={admiGetUsers}></UsersTable>
 
-      <CreateUsers />
     </section>
   );
 }

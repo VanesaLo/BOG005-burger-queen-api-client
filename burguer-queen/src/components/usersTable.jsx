@@ -1,7 +1,8 @@
 import React from "react";
 import { EditUsers } from "./editUsers";
+import { CreateUsers } from "./createUser";
 
-function AdminTable({ rows }) {
+function UsersTable({ rows, admiGetUsers }) {
   return (
     <div>
       <table className="tableAdmin">
@@ -22,8 +23,9 @@ function AdminTable({ rows }) {
           ))}
         </tbody>
       </table>
+      <CreateUsers admiGetUsers={admiGetUsers}/>
     </div>
   );
 }
 
-export default AdminTable;
+export default UsersTable;

@@ -1,10 +1,12 @@
 import React from "react";
-import Modal from "../Modals/modal";
+import ModalEdit from "./Modals/ModalEdit";
 import useModal from "../Modals/useModal";
 import editar from "../images/editar.png";
+import { editUser } from "../utils/petitions";
 
 function EditUsers() {
-  const [isOpenModal, openModal, closeModal] = useModal(false);
+  
+
 
   return (
     <td>

@@ -1,20 +1,9 @@
 import React, { useState } from "react";
-import Modal from "../Modals/modal";
+import ModalCreateUsers from "../Modals/modalCreateUser";
 import useModal from "../Modals/useModal";
 import { createUser } from "../utils/petitions";
 
 function CreateUsers() {
-
-  const [isOpenModal, openModal, closeModal] = useModal(false);
-  const [newEmail, setNewEmail] = useState([]);
-  const [newPassword, setNewPassword] = useState([]);
-  const [newRole, setNewRole] = useState([]);
-
-  createUser()
-    .then((res) => {
-      console.log(res.data);
-    })
-    .catch((error) => console.log(error));
 
   return (
     <div>
@@ -22,11 +11,11 @@ function CreateUsers() {
       <button className="btnCreateUser" onClick={openModal}>
         Crear usuario
       </button>
-      <Modal
+      <ModalCreateUsers
         title="Nuevo Usuario"
         isOpen={isOpenModal}
         closeModal={closeModal}
-      ></Modal>
+      ></ModalCreateUsers>
     </div>
   );
 }

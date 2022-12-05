@@ -33,14 +33,9 @@ const createUser = async (newUser) => {
     method: "POST",
     url: URLapi + "users",
     headers: {
-      "content-type": "application/json",
       authorization: `Bearer ${getToken()}`,
     },
-    data: {
-      email: newUser.email,
-      password: newUser.password,
-      role: newUser.role,
-    },
+    data: newUser
   });
 };
 
@@ -55,4 +50,17 @@ const getProducts = async () => {
   });
 };
 
-export { loginUsers, getUsers, getProducts, createUser };
+const editUser = async (editUser)=>{
+    return await axios({
+        method: "PATCH", 
+        url:`${URLapi}users/${editUser.id}`, 
+        headers: {
+            'content-type': 'application/json',
+            authorization: `Bearer ${getToken()}`
+        },
+        data: editUser,          
+    })     
+}
+
+
+export { loginUsers, getUsers, getProducts, createUser, editUser };
