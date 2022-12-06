@@ -3,6 +3,8 @@ import { EditProducts } from "./editProducts";
 
 function TableProducts({ rows }) {
   return (
+
+    
     <div>
       <table className="tableAdmin">
         <thead>
