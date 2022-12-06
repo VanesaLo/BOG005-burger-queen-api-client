@@ -3,13 +3,11 @@ import { Header } from "./header";
 import { NavView } from "./navView";
 
 function HeaderAdmin() {
-
-
   return (
     <>
-       <Header>
-       <NavView />
-       </Header>
+      <Header >
+        <NavView />
+      </Header>
     </>
   );
 }

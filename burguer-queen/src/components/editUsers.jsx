@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import ModalEdit from "../Modals/ModalEdit";
 import editar from "../images/editar.png";
 import useModal from "../Modals/useModal";
 

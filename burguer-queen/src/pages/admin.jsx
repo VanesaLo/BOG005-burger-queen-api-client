@@ -4,6 +4,7 @@ import { getUsers } from "../utils/petitions";
 import UsersTable from "../components/usersTable";
 import { HeaderAdmin } from "../components/headerAdmin";
 
+
 function Admin() {
 
 
@@ -24,9 +25,9 @@ function Admin() {
 
   return (
     <section className="containerAdmin">
-      <HeaderAdmin />
+      <HeaderAdmin/>
 
-      <UsersTable rows={users} admiGetUsers={admiGetUsers}></UsersTable>
+      <UsersTable rows={users} admiGetUsers={admiGetUsers}/>
 
     </section>
   );
