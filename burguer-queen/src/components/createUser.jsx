@@ -1,9 +1,11 @@
-import React, { useState } from "react";
+import React from "react";
 import ModalCreateUsers from "../Modals/modalCreateUser";
 import useModal from "../Modals/useModal";
-import { createUser } from "../utils/petitions";
+
 
 function CreateUsers() {
+
+const [isOpenModal, openModal, closeModal] = useModal(false);
 
   return (
     <div>

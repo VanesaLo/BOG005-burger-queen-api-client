@@ -50,15 +50,15 @@ const getProducts = async () => {
   });
 };
 
-const editUser = async (editUser)=>{
+const editUser = async (editUsern)=>{
     return await axios({
         method: "PATCH", 
-        url:`${URLapi}users/${editUser.id}`, 
+        url:`${URLapi}users/${editUsern.id}`, 
         headers: {
             'content-type': 'application/json',
             authorization: `Bearer ${getToken()}`
         },
-        data: editUser,          
+        data: editUsern,          
     })     
 }
 

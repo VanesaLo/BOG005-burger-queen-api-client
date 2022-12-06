@@ -1,53 +1,62 @@
-import React from "react";
-import "./modal.css";
+// import React, { useState } from "react";
+// import "./modal.css";
+// import { editUser } from "../utils/petitions";
 
 
-function EditUsers(props) {
+// const ModalEditUsers = ({ isOpen, closeModal, children, title, email, role }) => {
 
-  function handleChangeEditModal(event) {
-    props.setDataEditModal({
-      ...props.dataEditModal,
-      [event.target.name]: event.target.value
-    })
-  }
-}
+//   console.log('email in ModalEdit', email);
 
-  function handleSubmitEditModal(event) {
-    event.preventDefault()
-
-    editUser(props.dataEditModal)
-      .then((response) => {
-        console.log(response)
-      })
-    }
-  const [isOpenModal, openModal, closeModal] = useModal(false);
+//   const [editEmail, setEditEmail] = useState(email);
+//   const [editRole, setEditRole] = useState(role);
 
 
-const Modal = ({ isOpen, closeModal, children, title }) => {
+//   function handleChangeEdit(e) {
 
-function handledSubmit(e){
-  e.preventDefault();
-  closeModal();
-}
+//   }
 
-  return (
-    <div className={`modal ${isOpen && "modal-open"}`}>
-      <form className="formModal" onSubmit={handledSubmit}>
-        <button className="closeModal" onClick={closeModal} type="button">
-          X
-        </button>
-        <h1>{title}</h1>
-        <label>Role</label>
-        <input placeholder="" />
-        <label>Correo</label>
-        <input placeholder="" />
-        <label>Contraseña</label>
-        <input placeholder="" />
-        <button type="submit">Finalizar</button>
-        {children}
-      </form>
-    </div>
-  );
-};
+//   function handleSubmitEdit(e) {
+//     e.preventDefault();
+//     editUser(props.editUsern)
+//       .then((res) => {
+//         console.log
 
-export default Modal;
+//       })
+//       .catch((error) => console.log(error));
+
+//     closeModal();
+//   }
+
+
+//   return (
+//     <div className={`modal ${isOpen && "modal-open"}`}>
+//       <form className="formModal" onSubmit={handleSubmitEdit}>
+//         <button className="closeModal" onClick={closeModal} type="button">
+//           X
+//         </button>
+//         <h1>{title}</h1>
+//         <label>Role</label>
+//         <input type="text"
+//           name="role"
+//           placeholder="Ingrese role"
+//           value={editRole}
+//           onChange={handleChangeEdit} />
+//         <label>Correo</label>
+//         <input type="text"
+//           name="email"
+//           placeholder="Ingrese e-mail"
+//           value={editEmail}
+//           onChange={handleChangeEdit} />
+//         <label>Contraseña</label>
+//         <input type="text"
+//           name="password"
+//           placeholder="Ingrese Password"
+//           onChange={handleChangeEdit} />
+//         <button type="submit">Finalizar</button>
+//         {children}
+//       </form>
+//     </div>
+//   );
+// };
+
+// export default ModalEditUsers;

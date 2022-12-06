@@ -18,7 +18,7 @@ function UsersTable({ rows, admiGetUsers }) {
             <tr key={index}>
               <td>{row.email}</td>
               <td>{row.role}</td>
-              <EditUsers></EditUsers> 
+              <EditUsers email={row.email} role={row.role} />
             </tr>
           ))}
         </tbody>

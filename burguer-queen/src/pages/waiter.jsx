@@ -1,18 +1,18 @@
-import React from "react";
-import { Header } from "../components/header";
+// import React from "react";
+// import { Header } from "../components/header";
 
 
-function Waiter(){
-    return (
-        <>
-        <Header/>
-        <section>
-            Desayuno
-        </section>
-        </>
-    )
-}
+// function Waiter(){
+//     return (
+//         <>
+//         <Header/>
+//         <section>
+//             Desayuno
+//         </section>
+//         </>
+//     )
+// }
 
 
-export default Waiter;
+// export default Waiter;
 

@@ -1,12 +1,24 @@
-import React from "react";
-import ModalEdit from "./Modals/ModalEdit";
-import useModal from "../Modals/useModal";
+import React, { useState } from "react";
+import ModalEdit from "../Modals/ModalEdit";
 import editar from "../images/editar.png";
-import { editUser } from "../utils/petitions";
+import useModal from "../Modals/useModal";
 
-function EditUsers() {
-  
+function EditUsers({ email, role }) {
 
+  console.log('email in EditUsers', email);
+
+  const [editEmail, setEditEmail] = useState(email)
+  const [editRole, setEditRole] = useState(role);
+
+  const [isOpenModal, openModal, closeModal] = useModal(false);
+
+  const handleSubmitEdit = () => {
+    
+  }
+
+  const handleChangeEdit = () => {
+
+  }
 
   return (
     <td>
@@ -16,11 +28,33 @@ function EditUsers() {
         src={editar}
         alt="editar"
       />
-      <Modal
-        title="Editar Usuarios"
-        isOpen={isOpenModal}
-        closeModal={closeModal}
-      ></Modal>
+      <div className={`modal ${isOpenModal && "modal-open"}`}>
+        <form className="formModal" onSubmit={handleSubmitEdit}>
+          <button className="closeModal" onClick={closeModal} type="button">
+            X
+          </button>
+          <h1>Editar Usuarios</h1>
+          <label>Role</label>
+          <input type="text"
+            name="role"
+            placeholder="Ingrese role"
+            value={editRole}
+            onChange={handleChangeEdit} />
+          <label>Correo</label>
+          <input type="text"
+            name="email"
+            placeholder="Ingrese e-mail"
+            value={editEmail}
+            onChange={handleChangeEdit} />
+          <label>Contraseña</label>
+          <input type="text"
+            name="password"
+            placeholder="Ingrese Password"
+            onChange={handleChangeEdit} />
+          <button type="submit">Finalizar</button>
+
+        </form>
+      </div>
     </td>
   );
 }

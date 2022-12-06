@@ -3,7 +3,7 @@ import Login from "./pages/login";
 import Admin from "./pages/admin";
 import AdminTable from "./components/usersTable";
 import { Products } from "./pages/products";
-import Waiter from "./pages/waiter";
+// import Waiter from "./pages/waiter";
 
 function App() {
   return (
