@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from "react";
-import { HeaderAdmin } from "../components/headerAdmin";
-import TableProducts from "../components/productTable";
+import { HeaderAdmin } from "../components/Header/headerAdmin";
+import TableProducts from "../components/Tables/productTable";
 import { getProducts } from "../utils/petitions";
 import "../styles/admin.css";
-import { CreateProduct } from "../components/createProduct";
+import { CreateProduct } from "../components/Products/createProduct";
 
 function Products() {
   const [products, setProducts] = useState([]);
@@ -22,8 +22,8 @@ function Products() {
   }, []);
   return (
     <section className="containerAdmin">
-      <HeaderAdmin></HeaderAdmin>
-      <TableProducts rows={products}></TableProducts>
+      <HeaderAdmin/>
+      <TableProducts rows={products}/>
       <CreateProduct />
     </section>
   );

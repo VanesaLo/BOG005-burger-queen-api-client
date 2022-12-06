@@ -1,5 +1,5 @@
 import React from "react";
-import { EditProducts } from "./editProducts";
+import { EditProducts } from "../Products/editProducts";
 
 function TableProducts({ rows }) {
   return (

@@ -1,13 +1,11 @@
 import React, { useState, useEffect } from "react";
 import "../styles/admin.css";
 import { getUsers } from "../utils/petitions";
-import UsersTable from "../components/usersTable";
-import { HeaderAdmin } from "../components/headerAdmin";
+import UsersTable from "../components/Tables/usersTable";
+import { HeaderAdmin } from "../components/Header/headerAdmin";
 
 
 function Admin() {
-
-
   const [users, setUsers] = useState([]);
 
   const admiGetUsers = () => {
@@ -25,10 +23,10 @@ function Admin() {
 
   return (
     <section className="containerAdmin">
-      <HeaderAdmin/>
+      <HeaderAdmin />
+    
 
-      <UsersTable rows={users} admiGetUsers={admiGetUsers}/>
-
+      <UsersTable rows={users} admiGetUsers={admiGetUsers} />
     </section>
   );
 }

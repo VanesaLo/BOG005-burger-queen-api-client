@@ -1,9 +1,8 @@
 import { Routes, Route } from "react-router-dom";
 import Login from "./pages/login";
 import Admin from "./pages/admin";
-import AdminTable from "./components/usersTable";
 import { Products } from "./pages/products";
-// import Waiter from "./pages/waiter";
+import Waiter from "./pages/waiter";
 
 function App() {
   return (
@@ -12,7 +11,7 @@ function App() {
         <Route path="/" element={<Login />} />
         <Route path="/admin" element={<Admin />}/>
         <Route path="/products" element={<Products />} />
-        {/* <Route path="/waiter" element={<Waiter />} /> */}
+        <Route path="/waiter" element={<Waiter />} />
       </Routes>
     </div>
   );

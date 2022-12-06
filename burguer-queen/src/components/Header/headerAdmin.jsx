@@ -5,7 +5,7 @@ import { NavView } from "./navView";
 function HeaderAdmin() {
   return (
     <>
-      <Header >
+      <Header>
         <NavView />
       </Header>
     </>

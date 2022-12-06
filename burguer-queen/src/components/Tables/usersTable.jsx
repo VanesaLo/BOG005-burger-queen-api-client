@@ -1,6 +1,6 @@
 import React from "react";
-import { EditUsers } from "./editUsers";
-import { CreateUsers } from "./createUser";
+import { EditUsers } from "../Users/editUsers";
+import { CreateUsers } from "../Users/createUser";
 
 function UsersTable({ rows, admiGetUsers }) {
   return (

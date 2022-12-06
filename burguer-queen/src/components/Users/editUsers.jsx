@@ -1,6 +1,6 @@
 import React, { useState } from "react";
-import editar from "../images/editar.png";
-import useModal from "../Modals/useModal";
+import editar from "../../images/editar.png";
+import useModal from "../../Modals/useModal";
 
 function EditUsers({ email, role }) {
 

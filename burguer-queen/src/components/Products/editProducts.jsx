@@ -1,7 +1,7 @@
 import React from "react";
-import useModal from "../Modals/useModal";
-import editar from "../images/editar.png";
-import ModalProducts from "../Modals/modalProducts";
+import useModal from "../../Modals/useModal";
+import editar from "../../images/editar.png";
+
 
 function EditProducts() {
   const [isOpenModal, openModal, closeModal] = useModal(false);
@@ -14,11 +14,11 @@ function EditProducts() {
         src={editar}
         alt="editar"
       />
-      <ModalProducts
+      {/* <ModalProducts
         title="Editar Producto"
         isOpen={isOpenModal}
         closeModal={closeModal}
-      ></ModalProducts>
+      ></ModalProducts> */}
     </td>
   );
 }
