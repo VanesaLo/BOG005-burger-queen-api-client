@@ -11,7 +11,7 @@ function CreateProduct() {
     }
 
   return (
-    <div>
+    <div className="containerCreateProduct">
         <h3 className="titleCreateUser">¿Nuevo Producto?</h3>
       <button className="btnCreateUser" onClick={openModal}>Crear producto</button>
       <div className={`modal ${isOpenModal && "modal-open"}`}>

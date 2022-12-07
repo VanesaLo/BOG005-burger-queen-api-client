@@ -37,7 +37,7 @@ function EditUsers({ email, role }) {
           <input type="text"
             name="role"
             placeholder="Ingrese role"
-            value={editRole}
+            defaultValue={role}
             onChange={handleChangeEdit} />
           <label>Correo</label>
           <input type="text"

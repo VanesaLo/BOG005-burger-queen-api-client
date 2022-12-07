@@ -33,6 +33,9 @@ function Login() {
         if (response.data.user.role === "mesero") {
           navigate("/waiter");
         }
+        if (response.data.user.role === "chef") {
+          navigate("/chef");
+        }
       })
       .catch((error) => {
         console.log(error);
@@ -40,8 +43,9 @@ function Login() {
           errorMessage.innerHTML = "Contraseña incorrecta";
         } else if (error.response.data === "Password is too short") {
           errorMessage.innerHTML = "La contraseña es muy corta";
-        } else if(error.response.data === "Cannot find user");
+        } else if(error.response.data === "Cannot find user"){
         errorMessage.innerHTML = "Usuario no encontrado";
+        } else errorMessage.innerHTML = "Algo salio mal, revisa los campos.";
       });
   };
   const [email, setEmail] = useState("");

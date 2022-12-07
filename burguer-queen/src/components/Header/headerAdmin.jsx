@@ -1,12 +1,21 @@
 import React from "react";
 import { Header } from "./header";
-import { NavView } from "./navView";
+import { Link } from "react-router-dom";
 
 function HeaderAdmin() {
   return (
     <>
       <Header>
-        <NavView />
+        <nav className="navAdmin">
+          <ul className="orderAdmin">
+            <li>
+              <Link to="/products">Productos</Link>
+            </li>
+            <li>
+              <Link to="/admin">Usuarios</Link>
+            </li>
+          </ul>
+        </nav>
       </Header>
     </>
   );

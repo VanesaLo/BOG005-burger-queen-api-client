@@ -2,9 +2,13 @@ import React from "react";
 import useModal from "../../Modals/useModal";
 import editar from "../../images/editar.png";
 
-
 function EditProducts() {
   const [isOpenModal, openModal, closeModal] = useModal(false);
+  
+  function handledSubmit(e){
+    e.preventDefault();
+    closeModal();
+  }
 
   return (
     <td>
@@ -14,11 +18,23 @@ function EditProducts() {
         src={editar}
         alt="editar"
       />
-      {/* <ModalProducts
-        title="Editar Producto"
-        isOpen={isOpenModal}
-        closeModal={closeModal}
-      ></ModalProducts> */}
+      <div className={`modal ${isOpenModal && "modal-open"}`}>
+        <form className="formModal" onSubmit={handledSubmit}>
+          <button className="closeModal" onClick={closeModal}>
+            X
+          </button>
+          <h1>Crear Producto</h1>
+          <label>Nombre</label>
+          <input placeholder="" />
+          <label>Precio</label>
+          <input placeholder="" />
+          <label>Imagen</label>
+          <input placeholder="" />
+          <label>Tipo</label>
+          <input placeholder="" />
+          <button>Finalizar</button>
+        </form>
+      </div>
     </td>
   );
 }

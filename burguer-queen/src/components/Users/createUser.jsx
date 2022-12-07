@@ -34,7 +34,7 @@ function CreateUsers({ admiGetUsers }) {
   }
 
   return (
-    <>
+    <div className="containerCreateUser">
       <h3 className="titleCreateUser">¿Nuevo Usuario?</h3>
       <button className="btnCreateUser" onClick={openModal}>
         Crear usuario
@@ -69,7 +69,7 @@ function CreateUsers({ admiGetUsers }) {
           <button type="submit">Finalizar</button>
         </form>
       </div>
-    </>
+    </div>
   );
 }
 

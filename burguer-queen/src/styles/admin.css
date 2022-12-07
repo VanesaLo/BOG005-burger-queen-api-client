@@ -20,7 +20,7 @@ body {
 
 #containerHeader {
   height: 15vh;
-  width: 100%;
+  width: 100vw;
   display: flex;
   background-color: #feaa46;
   justify-content: space-around;
@@ -65,6 +65,7 @@ a {
   margin-top: 10%;
   background-color: #fff;
   border-radius: 3%;
+  margin-top: 8em;
 }
 
 th {
@@ -89,10 +90,30 @@ td {
   color: #fff;
 }
 
+.navAdmin {
+  font-weight: bolder;
+}
+
+.containerCreateUser{
+  display: flex;
+  flex-direction: column;
+  margin-top: -28rem;
+  justify-content: center;
+  align-items: center;
+}
+
+.containerCreateProduct{
+  display: flex;
+  flex-direction: column;
+  margin-top: -25rem;
+  justify-content: center;
+  align-items: center;
+}
+
 @media only screen and (max-width: 600px) {
   #containerHeader {
     display: flex;
-    width: 100vh;
+    width: 100vw;
     height: 25vh;
     justify-content: center;
     align-items: center;
