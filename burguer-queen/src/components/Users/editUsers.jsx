@@ -1,24 +1,43 @@
 import React, { useState } from "react";
 import editar from "../../images/editar.png";
 import useModal from "../../Modals/useModal";
+import { editUser } from "../../utils/petitions";
+import Swal from "sweetalert2";
 
-function EditUsers({ email, role }) {
+function EditUsers( {email, role, admiGetUsers, id }) {
 
-  console.log('email in EditUsers', email);
+  // console.log('email in EditUsers', email);
 
-  const [editEmail, setEditEmail] = useState(email)
-  const [editRole, setEditRole] = useState(role);
+  const [editDataUser, setEditDataUser]= useState({email: email , role: role, id: id})
 
   const [isOpenModal, openModal, closeModal] = useModal(false);
 
-  const handleSubmitEdit = () => {
-    
+  const handleChangeEdit = (e) => {
+    setEditDataUser({
+     ...editDataUser,
+     [e.target.name]: e.target.value,
+    })
+
   }
 
-  const handleChangeEdit = () => {
-
+  const handleSubmitEdit = (e) => {
+    e.preventDefault();
+    editUser(editDataUser)
+      .then((res) => {
+        admiGetUsers(); 
+        if (res.status === 201) {
+          Swal.fire("Good job!", "You clicked the button!", "success");
+        }
+        console.log(res.status)
+        closeModal
+      })
+      .catch((error) => {
+        console.log(error);
+        Swal.fire("Error!", "Tenemos un problema, intenta de nuevo", "error");
+      });
   }
 
+  
   return (
     <td>
       <img
@@ -37,13 +56,13 @@ function EditUsers({ email, role }) {
           <input type="text"
             name="role"
             placeholder="Ingrese role"
-            defaultValue={role}
+            value={editDataUser.role}
             onChange={handleChangeEdit} />
           <label>Correo</label>
           <input type="text"
             name="email"
             placeholder="Ingrese e-mail"
-            value={editEmail}
+            value={editDataUser.email}
             onChange={handleChangeEdit} />
           <label>Contraseña</label>
           <input type="text"

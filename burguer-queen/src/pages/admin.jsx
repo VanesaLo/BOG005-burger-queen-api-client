@@ -11,7 +11,7 @@ function Admin() {
   const admiGetUsers = () => {
     getUsers()
       .then((res) => {
-        console.log(res.data);
+        // console.log(res.data);
         setUsers(res.data);
       })
       .catch((eer) => console.log("caducó token"));

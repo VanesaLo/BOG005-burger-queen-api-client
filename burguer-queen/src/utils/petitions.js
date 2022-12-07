@@ -1,4 +1,5 @@
 import axios from "axios";
+import { useReducer } from "react";
 
 const URLapi = "http://localhost:8080/";
 
@@ -50,15 +51,20 @@ const getProducts = async () => {
   });
 };
 
-const editUser = async (editUsern)=>{
+const editUser = async (editDataUser)=>{
+ console.log(editDataUser.id)
+
     return await axios({
         method: "PATCH", 
-        url:`${URLapi}users/${editUsern.id}`, 
+        url:`${URLapi}users/${editDataUser.id}`, 
         headers: {
             'content-type': 'application/json',
-            authorization: `Bearer ${getToken()}`
+            'authorization': `Bearer ${getToken()}`
         },
-        data: editUsern,          
+        data: {
+          email: editDataUser.email, 
+          role: editDataUser.role, 
+        }
     })     
 }
 
