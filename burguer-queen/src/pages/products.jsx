@@ -3,7 +3,7 @@ import { HeaderAdmin } from "../components/Header/headerAdmin";
 import TableProducts from "../components/Tables/productTable";
 import { getProducts } from "../utils/petitions";
 import "../styles/admin.css";
-import { CreateProduct } from "../components/Products/createProduct";
+
 
 function Products() {
   const [products, setProducts] = useState([]);
@@ -22,9 +22,8 @@ function Products() {
   }, []);
   return (
     <section className="containerAdmin">
-      <HeaderAdmin/>
-      <TableProducts rows={products}/>
-      <CreateProduct />
+      <HeaderAdmin />
+      <TableProducts rows={products}  admiGetProduct={admiGetProduct}/>
     </section>
   );
 }

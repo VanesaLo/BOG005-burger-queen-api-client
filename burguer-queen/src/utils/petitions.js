@@ -40,17 +40,6 @@ const createUser = async (newUser) => {
   });
 };
 
-const getProducts = async () => {
-  return await axios({
-    method: "GET",
-    url: URLapi + "products",
-    headers: {
-      "content-type": "application/json",
-      authorization: `Bearer ${getToken()}`,
-    },
-  });
-};
-
 const editUser = async (editDataUser) => {
   console.log("peticion", editDataUser)
   return await axios(
@@ -80,6 +69,30 @@ const deleteUser = async (deleteDataUser) => {
   });
 };
 
+const getProducts = async () => {
+  return await axios({
+    method: "GET",
+    url: URLapi + "products",
+    headers: {
+      "content-type": "application/json",
+      authorization: `Bearer ${getToken()}`,
+    },
+  });
+};
+
+const createProducts = async (newProduct) => {
+  return await axios({
+    method: "POST",
+    url: URLapi + "products",
+    headers: {
+      authorization: `Bearer ${getToken()}`,
+    },
+    data: newProduct,
+  });
+};
+
+
+
 function getOrders() {
   return axios({
     method: "get",
@@ -99,4 +112,5 @@ export {
   editUser,
   deleteUser,
   getOrders,
+  createProducts
 };

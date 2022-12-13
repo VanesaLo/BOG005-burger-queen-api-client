@@ -5,15 +5,14 @@ import useModal from "../../Modals/useModal";
 import { editUser } from "../../utils/petitions";
 import Swal from "sweetalert2";
 
-function EditUsers({ email, role, admiGetUsers, id }) {
-  // console.log('email in EditUsers', email);
+function EditUsers({ email, role, id }) {
 
   const [editDataUser, setEditDataUser] = useState({
     email: email,
     role: role,
     id: id,
   });
-  console.log(editDataUser);
+ 
 
   const [isOpenModal, openModal, closeModal] = useModal(false);
 
@@ -28,7 +27,6 @@ function EditUsers({ email, role, admiGetUsers, id }) {
     e.preventDefault();
     editUser(editDataUser)
       .then((res) => {
-        // admiGetUsers();
         console.log("respuesta", res.data);
         localStorage.setItem("userUpdate", JSON.stringify(res.data));
 

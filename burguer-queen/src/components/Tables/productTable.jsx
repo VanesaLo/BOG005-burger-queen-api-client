@@ -1,7 +1,8 @@
 import React from "react";
+import { CreateProduct } from "../Products/createProduct";
 import { EditProducts } from "../Products/editProducts";
 
-function TableProducts({ rows }) {
+function TableProducts({ rows, admiGetProduct }) {
   return (
     <div>
       <table className="tableAdmin">
@@ -9,7 +10,6 @@ function TableProducts({ rows }) {
           <tr>
             <th> Name</th>
             <th> Price</th>
-            <th> Imagen </th>
             <th> Tipo </th>
             <th> Opciones </th>
           </tr>
@@ -19,13 +19,13 @@ function TableProducts({ rows }) {
             <tr key={index}>
               <td>{row.name}</td>
               <td>{row.price}</td>
-              <td>{row.image}</td>
               <td>{row.type}</td>
               <EditProducts />
             </tr>
           ))}
         </tbody>
       </table>
+      <CreateProduct admiGetProduct={admiGetProduct}/>
     </div>
   );
 }
