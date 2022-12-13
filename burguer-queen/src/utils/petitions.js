@@ -52,7 +52,7 @@ const getProducts = async () => {
 };
 
 const editUser = async (editDataUser)=>{
- console.log(editDataUser.id)
+
 
     return await axios({
         method: "PATCH", 
@@ -64,9 +64,32 @@ const editUser = async (editDataUser)=>{
         data: {
           email: editDataUser.email, 
           role: editDataUser.role, 
-        }
+        }, 
     })     
+};
+
+const deleteUser = async (deleteDataUser) => {
+
+  return axios({
+    method: 'delete',
+    url: `${URLapi}users/${deleteDataUser.user.id}`,
+    headers: {
+      'content-type': 'application/json',
+      'authorization': `Bearer ${getToken()}`
+    }
+  })
 }
 
+function getOrders() {
 
-export { loginUsers, getUsers, getProducts, createUser, editUser };
+  return axios({
+    method: 'get',
+    url: URLapi + 'orders',
+    headers: {
+      'content-type': 'application/json',
+      'authorization': `Bearer ${getToken()}`
+    }
+  })
+};
+
+export { loginUsers, getUsers, getProducts, createUser, editUser, deleteUser, getOrders };

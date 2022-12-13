@@ -1,11 +1,12 @@
 import React from "react";
 import useModal from "../../Modals/useModal";
 import editar from "../../images/editar.png";
+import Delete from "../../images/delete.png";
 
 function EditProducts() {
   const [isOpenModal, openModal, closeModal] = useModal(false);
-  
-  function handledSubmit(e){
+
+  function handledSubmit(e) {
     e.preventDefault();
     closeModal();
   }
@@ -17,6 +18,13 @@ function EditProducts() {
         style={{ height: "20px", width: "20px" }}
         src={editar}
         alt="editar"
+      />
+
+      <img
+        onClick={openModal}
+        style={{ height: "20px", width: "20px" }}
+        src={Delete}
+        alt="delete"
       />
       <div className={`modal ${isOpenModal && "modal-open"}`}>
         <form className="formModal" onSubmit={handledSubmit}>

@@ -1,28 +1,28 @@
 import React, { useState } from "react";
-import editar from "../../images/editar.png";
 import Delete from "../../images/delete.png";
 import useModal from "../../Modals/useModal";
-import { editUser } from "../../utils/petitions";
+import { deleteUser } from "../../utils/petitions";
 import Swal from "sweetalert2";
 
-function EditUsers( {email, role, admiGetUsers, id }) {
+
+function DeleteUser( {email, role, admiGetUsers, id }) {
 
   // console.log('email in EditUsers', email);
 
-  const [editDataUser, setEditDataUser]= useState({email: email , role: role, id: id})
+  const [deleteDataUser, setDeleteDataUser]= useState({email: email , role: role, id: id})
   console.log(editDataUser)
 
   const [isOpenModal, openModal, closeModal] = useModal(false);
 
-  const handleChangeEdit = (e) => {
-    setEditDataUser({
-     ...editDataUser,
+  const handleChangeDelete = (e) => {
+    setDeleteDataUser({
+     ... deleteDataUser, 
      [e.target.name]: e.target.value,
     })
 
   }
 
-  const handleSubmitEdit = (e) => {
+  const handleSubmitDelete = (e) => {
     e.preventDefault();
     editUser(editDataUser)
       .then((res) => {
@@ -45,22 +45,16 @@ function EditUsers( {email, role, admiGetUsers, id }) {
       <img
         onClick={openModal}
         style={{ height: "20px", width: "20px" }}
-        src={editar}
-        alt="editar"
-      />
-         <img
-        onClick={openModal}
-        style={{ height: "20px", width: "20px" }}
         src={Delete}
         alt="delete"
       />
       <div className={`modal ${isOpenModal && "modal-open"}`}>
-        <form className="formModal" onSubmit={handleSubmitEdit}>
+        <form className="formModal" onSubmit={handleSubmitDelete}>
           <button className="closeModal" onClick={closeModal} type="button">
             X
           </button>
-          <h1>Editar Usuarios</h1>
-          <label>Role</label>
+          <h1>Eliminar Usuario </h1>
+          {/* <label>Role</label>
           <input type="text"
             name="role"
             placeholder="Ingrese role"
@@ -77,7 +71,7 @@ function EditUsers( {email, role, admiGetUsers, id }) {
             name="password"
             placeholder="Ingrese Password"
             onChange={handleChangeEdit} />
-          <button type="submit">Finalizar</button>
+          <button type="submit">Finalizar</button> */}
 
         </form>
       </div>
@@ -85,4 +79,4 @@ function EditUsers( {email, role, admiGetUsers, id }) {
   );
 }
 
-export { EditUsers };
+export { DeleteUser };

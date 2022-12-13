@@ -20,8 +20,8 @@
 .menuOption {
   display: flex;
   background-color: #ffde59;
-  height: 10vh;
-  width: 30vw;
+  height: 9vh;
+  width: 18vw;
   font-weight: bolder;
   font-size: larger;
   justify-content: center;

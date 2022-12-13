@@ -58,7 +58,7 @@ a {
 
 .tableAdmin {
   height: 20vh;
-  width: 30%;
+  /* width: 30%; */
   justify-content: center;
   text-align: center;
   align-items: center;
@@ -97,7 +97,7 @@ td {
 .containerCreateUser{
   display: flex;
   flex-direction: column;
-  margin-top: -28rem;
+  /* margin-top: -28rem; */
   justify-content: center;
   align-items: center;
 }
@@ -105,7 +105,7 @@ td {
 .containerCreateProduct{
   display: flex;
   flex-direction: column;
-  margin-top: -25rem;
+  /* margin-top: -25rem; */
   justify-content: center;
   align-items: center;
 }

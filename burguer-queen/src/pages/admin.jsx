@@ -14,7 +14,7 @@ function Admin() {
         // console.log(res.data);
         setUsers(res.data);
       })
-      .catch((eer) => console.log("caducó token"));
+      .catch((err) => console.log(err, "caducó token"));
   };
 
   useEffect(() => {
