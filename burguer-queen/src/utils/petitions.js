@@ -36,7 +36,7 @@ const createUser = async (newUser) => {
     headers: {
       authorization: `Bearer ${getToken()}`,
     },
-    data: newUser
+    data: newUser,
   });
 };
 
@@ -51,45 +51,52 @@ const getProducts = async () => {
   });
 };
 
-const editUser = async (editDataUser)=>{
-
-
-    return await axios({
-        method: "PATCH", 
-        url:`${URLapi}users/${editDataUser.id}`, 
-        headers: {
-            'content-type': 'application/json',
-            'authorization': `Bearer ${getToken()}`
-        },
-        data: {
-          email: editDataUser.email, 
-          role: editDataUser.role, 
-        }, 
-    })     
+const editUser = async (editDataUser) => {
+  console.log("peticion", editDataUser)
+  return await axios(
+   {
+    url: `${URLapi}users/${editDataUser.id}`,
+    method: "PATCH",
+    headers: {
+      "content-type": "application/json",
+      authorization: `Bearer ${getToken()}`,
+    },
+    data: {
+      email: editDataUser.email,
+      role: editDataUser.role,
+      password: editDataUser.password
+    },
+  });
 };
 
 const deleteUser = async (deleteDataUser) => {
-
   return axios({
-    method: 'delete',
+    method: "delete",
     url: `${URLapi}users/${deleteDataUser.user.id}`,
     headers: {
-      'content-type': 'application/json',
-      'authorization': `Bearer ${getToken()}`
-    }
-  })
-}
-
-function getOrders() {
-
-  return axios({
-    method: 'get',
-    url: URLapi + 'orders',
-    headers: {
-      'content-type': 'application/json',
-      'authorization': `Bearer ${getToken()}`
-    }
-  })
+      "content-type": "application/json",
+      authorization: `Bearer ${getToken()}`,
+    },
+  });
 };
 
-export { loginUsers, getUsers, getProducts, createUser, editUser, deleteUser, getOrders };
+function getOrders() {
+  return axios({
+    method: "get",
+    url: URLapi + "orders",
+    headers: {
+      "content-type": "application/json",
+      authorization: `Bearer ${getToken()}`,
+    },
+  });
+}
+
+export {
+  loginUsers,
+  getUsers,
+  getProducts,
+  createUser,
+  editUser,
+  deleteUser,
+  getOrders,
+};

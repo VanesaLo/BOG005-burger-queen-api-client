@@ -5,41 +5,45 @@ import useModal from "../../Modals/useModal";
 import { editUser } from "../../utils/petitions";
 import Swal from "sweetalert2";
 
-function EditUsers( {email, role, admiGetUsers, id }) {
-
+function EditUsers({ email, role, admiGetUsers, id }) {
   // console.log('email in EditUsers', email);
 
-  const [editDataUser, setEditDataUser]= useState({email: email , role: role, id: id})
-  console.log(editDataUser)
+  const [editDataUser, setEditDataUser] = useState({
+    email: email,
+    role: role,
+    id: id,
+  });
+  console.log(editDataUser);
 
   const [isOpenModal, openModal, closeModal] = useModal(false);
 
   const handleChangeEdit = (e) => {
     setEditDataUser({
-     ...editDataUser,
-     [e.target.name]: e.target.value,
-    })
-
-  }
+      ...editDataUser,
+      [e.target.name]: e.target.value,
+    });
+  };
 
   const handleSubmitEdit = (e) => {
     e.preventDefault();
     editUser(editDataUser)
       .then((res) => {
-        admiGetUsers(); 
+        // admiGetUsers();
+        console.log("respuesta", res.data);
+        localStorage.setItem("userUpdate", JSON.stringify(res.data));
+
         if (res.status === 201) {
           Swal.fire("Good job!", "You clicked the button!", "success");
         }
-        console.log(res.status)
-        closeModal
+        console.log(res.status);
+        closeModal;
       })
       .catch((error) => {
         console.log(error);
         Swal.fire("Error!", "Tenemos un problema, intenta de nuevo", "error");
       });
-  }
+  };
 
-  
   return (
     <td>
       <img
@@ -48,7 +52,7 @@ function EditUsers( {email, role, admiGetUsers, id }) {
         src={editar}
         alt="editar"
       />
-         <img
+      <img
         onClick={openModal}
         style={{ height: "20px", width: "20px" }}
         src={Delete}
@@ -61,24 +65,29 @@ function EditUsers( {email, role, admiGetUsers, id }) {
           </button>
           <h1>Editar Usuarios</h1>
           <label>Role</label>
-          <input type="text"
+          <input
+            type="text"
             name="role"
             placeholder="Ingrese role"
             value={editDataUser.role}
-            onChange={handleChangeEdit} />
+            onChange={handleChangeEdit}
+          />
           <label>Correo</label>
-          <input type="text"
+          <input
+            type="text"
             name="email"
             placeholder="Ingrese e-mail"
             value={editDataUser.email}
-            onChange={handleChangeEdit} />
+            onChange={handleChangeEdit}
+          />
           <label>Contraseña</label>
-          <input type="text"
+          <input
+            type="text"
             name="password"
             placeholder="Ingrese Password"
-            onChange={handleChangeEdit} />
+            onChange={handleChangeEdit}
+          />
           <button type="submit">Finalizar</button>
-
         </form>
       </div>
     </td>
