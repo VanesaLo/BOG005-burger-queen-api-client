@@ -47,7 +47,7 @@ const editUser = async (editDataUser) => {
     url: `${URLapi}users/${editDataUser.id}`,
     method: "PATCH",
     headers: {
-      "content-type": "application/json",
+      // "content-type": "application/json",
       authorization: `Bearer ${getToken()}`,
     },
     data: {
@@ -103,7 +103,22 @@ function getOrders() {
     },
   });
 }
+async function imageProducts(img) {
 
+  const form = new FormData();
+  form.append('image', img);
+  const apiKey = '13f6c238e5259d35197fe6cf74b0adad'
+  const url = `https://api.imgbb.com/1/upload?key=${apiKey}`
+  
+  const petition = {
+    method: 'POST',
+    body: form
+  }
+  const response = await fetch(url,petition) 
+  const dataResponse = await response.json()
+
+  return dataResponse.data.url
+}
 export {
   loginUsers,
   getUsers,
@@ -112,5 +127,6 @@ export {
   editUser,
   deleteUser,
   getOrders,
-  createProducts
+  createProducts, 
+  imageProducts
 };

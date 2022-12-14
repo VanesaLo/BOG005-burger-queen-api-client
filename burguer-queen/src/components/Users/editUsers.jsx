@@ -1,18 +1,16 @@
 import React, { useState } from "react";
-import editar from "../../images/editar.png";
+import editar from "../../images/edit.png";
 import Delete from "../../images/delete.png";
 import useModal from "../../Modals/useModal";
 import { editUser } from "../../utils/petitions";
 import Swal from "sweetalert2";
 
 function EditUsers({ email, role, id }) {
-
   const [editDataUser, setEditDataUser] = useState({
     email: email,
     role: role,
     id: id,
   });
- 
 
   const [isOpenModal, openModal, closeModal] = useModal(false);
 
@@ -27,9 +25,7 @@ function EditUsers({ email, role, id }) {
     e.preventDefault();
     editUser(editDataUser)
       .then((res) => {
-        console.log("respuesta", res.data);
         localStorage.setItem("userUpdate", JSON.stringify(res.data));
-
         if (res.status === 201) {
           Swal.fire("Good job!", "You clicked the button!", "success");
         }

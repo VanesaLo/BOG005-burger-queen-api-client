@@ -1,7 +1,10 @@
 import React from "react";
 import useModal from "../../Modals/useModal";
-import editar from "../../images/editar.png";
+import editar from "../../images/edit.png";
 import Delete from "../../images/delete.png";
+import { imageProducts } from "../../utils/petitions";
+
+
 
 function EditProducts() {
   const [isOpenModal, openModal, closeModal] = useModal(false);
@@ -9,6 +12,24 @@ function EditProducts() {
   function handledSubmit(e) {
     e.preventDefault();
     closeModal();
+  }
+
+  async function onChangeImg(event , setImgProduct) {
+    const uploadedImg = await event.target.files[0]
+    const fr = new FileReader()
+    fr.readAsDataURL(uploadedImg)
+    fr.onload = () => setImgProduct(fr.result)
+    return uploadedImg
+  }
+  
+  const imageProductChange = async (event) => {
+    const urlUpload = await onChangeImg(event, setImgProduct)
+    console.log('urlUpload', urlUpload)
+    const urlImage = await imageProducts(urlUpload)
+    setImgProduct(
+      urlImage
+      )
+    setProduct((prevState) => ({...prevState, urlImage: event.target.value}))
   }
 
   return (

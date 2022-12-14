@@ -24,8 +24,10 @@ function Waiter() {
   return (
     <div className="containerWaiter">
       <Header />
+    <div className= "containerMenuandOrders">
       <Menu admiGetProducts={products} />
       <Orders />
+      </div>
     </div>
   );
 }

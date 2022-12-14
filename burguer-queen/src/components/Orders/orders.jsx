@@ -6,11 +6,11 @@ function Orders() {
   return (
     <div className="containerOrders">
       <form className="orderForm">
-        <h2>Pedido</h2>
+        <h2 className="titleOrders">Pedido</h2>
         <div className="orderDetails">
-          <label>Número de la orden</label>
+          <label className="InputOrders">Número de la orden</label>
           <input type="text" name="numOrder" />
-          <label>Nombre del cliente</label>
+          <label className="InputOrders">Nombre del cliente</label>
           <input type="text" name="nameClientOrder" />
         </div>
         <section className="tableHeaderSection">

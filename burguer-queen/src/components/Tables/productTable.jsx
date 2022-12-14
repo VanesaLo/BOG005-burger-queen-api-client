@@ -11,6 +11,7 @@ function TableProducts({ rows, admiGetProduct }) {
             <th> Name</th>
             <th> Price</th>
             <th> Tipo </th>
+            <th> Image </th>
             <th> Opciones </th>
           </tr>
         </thead>
@@ -20,6 +21,7 @@ function TableProducts({ rows, admiGetProduct }) {
               <td>{row.name}</td>
               <td>{row.price}</td>
               <td>{row.type}</td>
+              <td>{row.image}</td>
               <EditProducts />
             </tr>
           ))}
