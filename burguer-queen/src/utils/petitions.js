@@ -41,9 +41,7 @@ const createUser = async (newUser) => {
 };
 
 const editUser = async (editDataUser) => {
-  console.log("peticion", editDataUser)
-  return await axios(
-   {
+  return await axios({
     url: `${URLapi}users/${editDataUser.id}`,
     method: "PATCH",
     headers: {
@@ -53,7 +51,7 @@ const editUser = async (editDataUser) => {
     data: {
       email: editDataUser.email,
       role: editDataUser.role,
-      password: editDataUser.password
+      password: editDataUser.password,
     },
   });
 };
@@ -61,7 +59,7 @@ const editUser = async (editDataUser) => {
 const deleteUser = async (deleteDataUser) => {
   return axios({
     method: "delete",
-    url: `${URLapi}users/${deleteDataUser.user.id}`,
+    url: `${URLapi}users/${deleteDataUser}`,
     headers: {
       "content-type": "application/json",
       authorization: `Bearer ${getToken()}`,
@@ -80,6 +78,23 @@ const getProducts = async () => {
   });
 };
 
+const editProducts = async (editDataProduct) => {
+  console.log(editDataProduct)
+  return await axios({
+    method: "PATCH",
+    url: `${URLapi}products/${editDataProduct.id}`,
+    headers: {
+      // "content-type": "application/json",
+      authorization: `Bearer ${getToken()}`,
+    },
+    data: {
+      name: editDataProduct.name,
+      price: editDataProduct.price,
+      type: editDataProduct.type,
+    },
+  });
+};
+
 const createProducts = async (newProduct) => {
   return await axios({
     method: "POST",
@@ -91,6 +106,17 @@ const createProducts = async (newProduct) => {
   });
 };
 
+const deleteProduct = async (deleteDataProduct) => {
+  console.log("soy delete", deleteDataProduct)
+  return axios({
+    method: "delete",
+    url: `${URLapi}products/${deleteDataProduct}`,
+    headers: {
+      "content-type": "application/json",
+      authorization: `Bearer ${getToken()}`,
+    },
+  });
+};
 
 
 function getOrders() {
@@ -104,20 +130,19 @@ function getOrders() {
   });
 }
 async function imageProducts(img) {
-
   const form = new FormData();
-  form.append('image', img);
-  const apiKey = '13f6c238e5259d35197fe6cf74b0adad'
-  const url = `https://api.imgbb.com/1/upload?key=${apiKey}`
-  
-  const petition = {
-    method: 'POST',
-    body: form
-  }
-  const response = await fetch(url,petition) 
-  const dataResponse = await response.json()
+  form.append("image", img);
+  const apiKey = "13f6c238e5259d35197fe6cf74b0adad";
+  const url = `https://api.imgbb.com/1/upload?key=${apiKey}`;
 
-  return dataResponse.data.url
+  const petition = {
+    method: "POST",
+    body: form,
+  };
+  const response = await fetch(url, petition);
+  const dataResponse = await response.json();
+
+  return dataResponse.data.url;
 }
 export {
   loginUsers,
@@ -127,6 +152,8 @@ export {
   editUser,
   deleteUser,
   getOrders,
-  createProducts, 
-  imageProducts
+  createProducts,
+  imageProducts,
+  editProducts,
+  deleteProduct
 };

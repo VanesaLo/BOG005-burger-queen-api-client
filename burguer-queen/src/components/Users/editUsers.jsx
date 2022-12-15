@@ -2,10 +2,11 @@ import React, { useState } from "react";
 import editar from "../../images/edit.png";
 import Delete from "../../images/delete.png";
 import useModal from "../../Modals/useModal";
-import { editUser } from "../../utils/petitions";
+import { editUser, deleteUser } from "../../utils/petitions";
 import Swal from "sweetalert2";
 
-function EditUsers({ email, role, id }) {
+function EditUsers({ email, role, id, admiGetUsers }) {
+  const [deleteDataUser, setDeleteDataUser] = useState(false);
   const [editDataUser, setEditDataUser] = useState({
     email: email,
     role: role,
@@ -26,7 +27,8 @@ function EditUsers({ email, role, id }) {
     editUser(editDataUser)
       .then((res) => {
         localStorage.setItem("userUpdate", JSON.stringify(res.data));
-        if (res.status === 201) {
+        admiGetUsers;
+        if (res.status === 200) {
           Swal.fire("Good job!", "You clicked the button!", "success");
         }
         console.log(res.status);
@@ -35,6 +37,41 @@ function EditUsers({ email, role, id }) {
       .catch((error) => {
         console.log(error);
         Swal.fire("Error!", "Tenemos un problema, intenta de nuevo", "error");
+      });
+  };
+
+
+  const handleSubmitDeleteUser = () => {
+    deleteUser(id)
+    Swal.fire({
+      title: "¿Estás seguro?",
+      text: "¡No podrás deshacer esta acción!",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#3085d6",
+      cancelButtonColor: "#d33",
+      confirmButtonText: "¡Sí, elimínalo!",
+      cancelButtonText: "Cancelar",
+    }) 
+      .then((res) => {
+        if (res.isConfirmed) {
+          swalWithBootstrapButtons.fire(
+            "Deleted!",
+            "Your file has been deleted.",
+            "success"
+          );
+
+          setDeleteDataUser(!deleteDataUser);
+        } else if (result.dismiss === Swal.DismissReason.cancel) {
+          swalWithBootstrapButtons.fire(
+            "Cancelled",
+            "Your imaginary file is safe :)",
+            "error"
+          );
+        }
+      })
+      .catch((error) => {
+        error;
       });
   };
 
@@ -47,7 +84,7 @@ function EditUsers({ email, role, id }) {
         alt="editar"
       />
       <img
-        onClick={openModal}
+        onClick={handleSubmitDeleteUser}
         style={{ height: "20px", width: "20px" }}
         src={Delete}
         alt="delete"
@@ -65,6 +102,7 @@ function EditUsers({ email, role, id }) {
             placeholder="Ingrese role"
             value={editDataUser.role}
             onChange={handleChangeEdit}
+            required
           />
           <label>Correo</label>
           <input
@@ -73,6 +111,7 @@ function EditUsers({ email, role, id }) {
             placeholder="Ingrese e-mail"
             value={editDataUser.email}
             onChange={handleChangeEdit}
+            required
           />
           <label>Contraseña</label>
           <input
