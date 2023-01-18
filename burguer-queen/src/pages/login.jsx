@@ -52,7 +52,7 @@ function Login() {
   const [password, setPassword] = useState("");
 
   return (
-    <div className="container">
+    <div id="container">
       <section>
         <img className="logoImage" src={image} alt="foto del logo" />
       </section>

@@ -1,11 +1,12 @@
 import React from "react";
 import { CreateProduct } from "../Products/createProduct";
 import { EditProducts } from "../Products/editProducts";
+import Table from 'react-bootstrap/Table';
 
 function TableProducts({ rows, admiGetProduct }) {
   return (
-    <div>
-      <table className="tableAdmin">
+    <>
+    <Table className="tableAdmin" >
         <thead>
           <tr>
             <th> Name</th>
@@ -18,7 +19,6 @@ function TableProducts({ rows, admiGetProduct }) {
         <tbody>
           {rows.map((row, index) => (
             <tr key={index}>
-              <td>{row.id}</td>
               <td>{row.name}</td>
               <td>{row.price}</td>
               <td>{row.type}</td>
@@ -33,10 +33,14 @@ function TableProducts({ rows, admiGetProduct }) {
             </tr>
           ))}
         </tbody>
-      </table>
-      <CreateProduct admiGetProduct={admiGetProduct} />
-    </div>
+        </Table>
+        <CreateProduct admiGetProduct={admiGetProduct} />
+        </>
   );
 }
 
 export default TableProducts;
+
+
+
+

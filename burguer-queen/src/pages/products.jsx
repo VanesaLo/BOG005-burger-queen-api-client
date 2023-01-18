@@ -20,9 +20,12 @@ function Products() {
   useEffect(() => {
     admiGetProduct();
   }, []);
+
   return (
+
     <section className="containerAdmin">
       <HeaderAdmin />
+
       <TableProducts rows={products}  admiGetProduct={admiGetProduct}/>
     </section>
   );

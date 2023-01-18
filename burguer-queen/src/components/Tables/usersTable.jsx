@@ -1,11 +1,12 @@
 import React from "react";
 import { EditUsers } from "../Users/editUsers";
 import { CreateUsers } from "../Users/createUser";
+import Table from 'react-bootstrap/Table'
 
 function UsersTable({ rows, admiGetUsers }) {
   return (
-    <div>
-      <table className="tableAdmin">
+    <>
+    <Table className="tableAdmin" >
         <thead>
           <tr>
             <th> Num</th>
@@ -24,9 +25,9 @@ function UsersTable({ rows, admiGetUsers }) {
             </tr>
           ))}
         </tbody>
-      </table>
+      </Table>
       <CreateUsers admiGetUsers={admiGetUsers} />
-    </div>
+    </>
   );
 }
 

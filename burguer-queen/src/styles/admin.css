@@ -9,22 +9,23 @@ body {
   font-family: "Poppins", sans-serif;
 }
 
+#navBarHeader {
+  height: 70px;
+  display: flex !important;
+  background-color: #feaa46;
+}
+
 .containerAdmin {
   height: 100vh;
   width: 100vw;
-  display: flex;
   background-image: url("../images/background.jpg");
+  display: flex;
   flex-direction: column;
-  align-items: center;
 }
 
-#containerHeader {
-  height: 15vh;
-  width: 100vw;
-  display: flex;
-  background-color: #feaa46;
-  justify-content: space-around;
-  align-items: center;
+#basic-navbar-nav {
+  flex-grow: initial;
+  color: black;
 }
 
 .logoImageAdmin {
@@ -36,7 +37,6 @@ body {
 #logoutIcon {
   height: 30px;
   width: 30px;
-  margin-left: 5%;
 }
 
 .orderAdmin {
@@ -47,34 +47,23 @@ body {
 }
 
 li {
-  padding-left: 15%;
   padding-right: 12%;
+  text-decoration: none;
 }
 
 a {
-  text-decoration: none;
-  color: black;
+  text-decoration: none !important;
+  color: black !important
 }
 
 .tableAdmin {
-  height: 20vh;
-  /* width: 30%; */
-  justify-content: center;
+  width: 30% !important;
   text-align: center;
   align-items: center;
   margin-top: 10%;
   background-color: #fff;
   border-radius: 3%;
   margin-top: 8em;
-}
-
-th {
-  border: 1px solid black;
-  border-radius: 4%;
-}
-td {
-  border: 1px solid black;
-  border-radius: 4%;
 }
 
 .btnCreateUser {
@@ -87,14 +76,16 @@ td {
 }
 
 .titleCreateUser {
-  color: #fff;
+  color: black;
+  justify-content: center;
 }
 
 .navAdmin {
   font-weight: bolder;
+  color: black;
 }
 
-.containerCreateUser{
+.containerCreateUser {
   display: flex;
   flex-direction: column;
   /* margin-top: -28rem; */
@@ -102,7 +93,7 @@ td {
   align-items: center;
 }
 
-.containerCreateProduct{
+.containerCreateProduct {
   display: flex;
   flex-direction: column;
   /* margin-top: -25rem; */
@@ -111,16 +102,22 @@ td {
 }
 
 @media only screen and (max-width: 600px) {
-  #containerHeader {
+  .container {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+  }
+
+  /* #containerHeader {
     display: flex;
     width: 100vw;
     height: 25vh;
     justify-content: center;
     align-items: center;
     flex-direction: column;
-  }
-
-  .tableAdmin {
+  }  */
+  
+  /* .tableAdmin {
     height: 20vh;
     width: 50vw;
   }
@@ -135,4 +132,5 @@ td {
     right: 1rem;
     top: 1rem;
   }
-}
+} */
+} 
