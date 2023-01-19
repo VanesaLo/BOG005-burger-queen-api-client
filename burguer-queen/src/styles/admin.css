@@ -11,9 +11,11 @@ body {
 
 #navBarHeader {
   height: 70px;
+  width: 100%;
   display: flex !important;
   background-color: #feaa46;
 }
+
 
 .containerAdmin {
   height: 100vh;
@@ -21,11 +23,11 @@ body {
   background-image: url("../images/background.jpg");
   display: flex;
   flex-direction: column;
+  align-items: center;
 }
 
 #basic-navbar-nav {
   flex-grow: initial;
-  color: black;
 }
 
 .logoImageAdmin {
@@ -43,7 +45,8 @@ body {
   display: flex;
   flex-direction: row;
   list-style: none;
-  color: black;
+  justify-content: center;
+  align-items:flex-end; 
 }
 
 li {
@@ -59,12 +62,12 @@ a {
 .tableAdmin {
   width: 30% !important;
   text-align: center;
-  align-items: center;
   margin-top: 10%;
   background-color: #fff;
   border-radius: 3%;
-  margin-top: 8em;
+ 
 }
+
 
 .btnCreateUser {
   height: 3rem;
@@ -76,7 +79,7 @@ a {
 }
 
 .titleCreateUser {
-  color: black;
+  color: #fff;
   justify-content: center;
 }
 
@@ -88,7 +91,6 @@ a {
 .containerCreateUser {
   display: flex;
   flex-direction: column;
-  /* margin-top: -28rem; */
   justify-content: center;
   align-items: center;
 }
@@ -96,7 +98,6 @@ a {
 .containerCreateProduct {
   display: flex;
   flex-direction: column;
-  /* margin-top: -25rem; */
   justify-content: center;
   align-items: center;
 }

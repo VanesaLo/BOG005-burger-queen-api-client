@@ -24,8 +24,6 @@ function Admin() {
   return (
     <section className="containerAdmin">
       <HeaderAdmin />
-    
-
       <UsersTable rows={users} admiGetUsers={admiGetUsers} />
     </section>
   );
