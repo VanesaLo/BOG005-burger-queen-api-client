@@ -9,10 +9,8 @@ body {
   font-family: "Poppins", sans-serif;
 }
 
-#navBarHeader {
-  height: 70px;
+#containerHeader{
   width: 100%;
-  display: flex !important;
   background-color: #feaa46;
 }
 
@@ -86,6 +84,8 @@ a {
 .navAdmin {
   font-weight: bolder;
   color: black;
+  display:flex;
+  justify-content: center;
 }
 
 .containerCreateUser {

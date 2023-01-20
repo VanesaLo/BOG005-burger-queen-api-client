@@ -6,7 +6,7 @@ import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
 import Container from "react-bootstrap/Container";
 
-function Header({ children }) {
+function Header({children}) {
   const navigate = useNavigate();
 
   const buttonOut = (e) => {
@@ -14,7 +14,8 @@ function Header({ children }) {
     navigate("/");
   };
   return (
-    <Navbar collapseOnSelect  expand="lg" id="navBarHeader">
+   <header id="containerHeader">
+    <Navbar collapseOnSelect  expand="lg" >
       <Container>
         <img className="logoImageAdmin" src={image} alt="foto del logo" />
         <Navbar.Brand>
@@ -28,6 +29,7 @@ function Header({ children }) {
         </Navbar.Collapse>
       </Container>
     </Navbar>
+    </header>
   );
 }
 //   return (

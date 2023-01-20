@@ -30,7 +30,7 @@ body {
 }
 
 .containerForm {
-  font-size: 20px;
+  font-size: 18px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -76,9 +76,9 @@ label {
   margin-top: 2px;
   border: none;
   background-color: transparent;
-  text-decoration: underline;
-  color: blue;
-  font-size: small;
+  text-decoration: underline !important;
+  color: blue !important;
+  font-size: 15px !important;
 }
 
 .passwordUser {

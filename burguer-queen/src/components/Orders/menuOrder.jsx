@@ -1,4 +1,6 @@
 import React, { useState } from "react";
+import Card from 'react-bootstrap/Card';
+
 
 function Menu({ admiGetProducts }) {
   const [showProducts, setShowProducts] = useState(admiGetProducts);
@@ -21,18 +23,23 @@ function Menu({ admiGetProducts }) {
           Almuerzo
         </button>
       </section>
-
-      <section className="menu">
-        {showProducts.map((product) => (
+      <Card className="menu">
+      <Card.Title className="titleMenu"> Menú </Card.Title>
+      <Card.Body>
+      {showProducts.map((product) => (
           <article key={product.id}>
             <p>
               {product.name} <span>${product.price}</span>
             </p>
           </article>
         ))}
-      </section>
+
+      </Card.Body>
+    </Card>
     </>
   );
 }
 
 export { Menu };
+
+

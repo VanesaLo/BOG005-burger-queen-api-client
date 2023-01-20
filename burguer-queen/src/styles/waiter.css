@@ -7,68 +7,90 @@
 .containerWaiter {
   height: 100vh;
   width: 100vw;
-  display: flex;
-  flex-direction: column;
+  /* display: flex;
+  flex-direction: column; */
   background-image: url("../images/background.jpg");
-  align-items: center;
+  /* align-items: center; */
 }
 
-.containerOrders {
+.orderWaiter {
+  font-weight: bolder;
+  color: black;
   display: flex;
-  position: absolute;
-  right: 300px;
-  top:215px; 
-  background: #FFFFFF;
-  width: 300px;
+  justify-content: center;
+  list-style: none;
 }
-.titleOrders{
+#containerOrders {
+  display: flex;
+}
+
+.titleOrders {
   display: flex;
   justify-content: center;
 }
 
-.label{
+.titleMenu {
+  display: flex ;
+  justify-content: center;
+  color: black;
+}
+
+.label {
   font-weight: bold;
   display: flex;
   justify-content: center;
 }
 
-.InputOrders{
+.InputOrders {
   height: 2em;
   width: 5cm;
   display: flex;
 }
-.containerMenuandOrders{
-  display: grid;
-  justify-content: center;
+
+article {
+  color: #fff;
+  font-weight: bold;
+  background-color: #535152;
+  font-size: 12px;
+  border-radius: 25%;
+  width: 99px;
+  height: 75px;
+  margin-bottom: 5px;
+  padding: 5px;
+}
+
+article:hover {
+  background-color: rgba(255, 255, 255, 0.781);
+  color: black;
+  font-weight: bold;
 }
 
 .menu {
-  display: flex;
-  flex-direction: column;
   background: linear-gradient(
     256deg,
     rgba(255, 222, 89, 1) 20%,
     rgba(254, 170, 70, 1) 53%
   );
-  height: 10rem;
   width: 20rem;
-  border-radius: 10%;
   padding: 2%;
-  position: relative;
-  right: 10px;
-  /* margin-right: 20cm; */
 }
 
-.btnSectionFilter {
-  display: grid;
-  grid-template-columns: 5fr 5fr;
-  column-gap: 50px;
-  margin: 30px;
+.sectionMenu {
+  display: flex; 
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content:space-around;
+  margin: 50px;
+}
+
+ .btnSectionFilter {
+  display: flex;
+  flex-direction: column;
 }
 
 .btnBreakfast,
 .btnLunch {
-  display: flex;
+  display:flex; 
   background-color: #ffde59;
   height: 9vh;
   width: 18vw;
@@ -77,15 +99,35 @@
   justify-content: center;
   align-items: center;
   border-radius: 5%;
+  margin: 10px;
 }
-.btnSubmitOrder,
-.BtnCancelOrder{
-background-color: transparent;
-display:inline-grid; 
-justify-items: center;
-align-content: center;
-grid-template-columns: repeat(2, 250px);
+.buttonsOrder {
+  background-color: transparent;
+  display: flex;
+  justify-content: center;
 }
 
 @media only screen and (max-width: 600px) {
+  .sectionMenu {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin: 1px;
+  }
+  .menu{
+    margin:20px; 
+  }
+  
+ .btnSectionFilter {
+  display: flex;
+  flex-direction: row;
+}
+
+  .btnBreakfast,
+  .btnLunch {
+    height: 7vh;
+    width: 26vw;
+  }
+
 }

@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import "../styles/waiter.css";
-import { Header } from "../components/Header/header";
+import { HeaderWaiter } from "../components/Header/headerWaiter.jsx";
 import { getProducts } from "../utils/petitions";
 import { Menu } from "../components/Orders/menuOrder";
 import { Orders } from "../components/Orders/orders";
@@ -23,11 +23,11 @@ function Waiter() {
 
   return (
     <div className="containerWaiter">
-      <Header />
-    <div className= "containerMenuandOrders">
+      <HeaderWaiter/>
+      <section className="sectionMenu"> 
       <Menu admiGetProducts={products} />
-      <Orders />
-      </div>
+      <Orders/>
+      </section>
     </div>
   );
 }
