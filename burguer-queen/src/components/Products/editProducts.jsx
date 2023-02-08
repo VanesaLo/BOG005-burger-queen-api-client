@@ -1,21 +1,29 @@
 import React, { useState } from "react";
-import useModal from "../../Modals/useModal";
 import editar from "../../images/edit.png";
 import Delete from "../../images/delete.png";
-import { imageProducts } from "../../utils/petitions";
+// import { imageProducts } from "../../utils/petitions";
 import { editProducts, deleteProduct } from "../../utils/petitions";
 import Swal from "sweetalert2";
+import Button from "react-bootstrap/Button";
+import Form from "react-bootstrap/Form";
+import Modal from "react-bootstrap/Modal";
 
-function EditProducts({ name, price, type, id }) {
-  const [imgProduct, setImgProduct] = useState("");
+function EditProducts({ name, price, type, id,}) {
+  // const [imgProduct, setImgProduct] = useState("");
+
+  const [show, setShow] = useState(false);
+
+  const handleClose = () => setShow(false);
+  const handleShow = () => setShow(true);
+
   const [deleteDataProduct, setDeleteDataProduct] = useState(false);
   const [editDataProduct, setEditDataProduct] = useState({
-    name: name,
     id: id,
+    name: name,
     price: price,
     type: type,
   });
-  const [isOpenModal, openModal, closeModal] = useModal(false);
+  // const [isOpenModal, openModal, closeModal] = useModal(false);
 
   const handleChangeProduct = (e) => {
     setEditDataProduct({
@@ -33,7 +41,6 @@ function EditProducts({ name, price, type, id }) {
           Swal.fire("Good job!", "You clicked the button!", "success");
         }
         console.log(res.status);
-        closeModal;
       })
       .catch((error) => {
         console.log(error);
@@ -42,7 +49,7 @@ function EditProducts({ name, price, type, id }) {
   };
 
   const handleSubmitDelete = () => {
-    deleteProduct(id)
+    deleteProduct(id);
     Swal.fire({
       title: "¿Estás seguro?",
       text: "¡No podrás deshacer esta acción!",
@@ -52,7 +59,7 @@ function EditProducts({ name, price, type, id }) {
       cancelButtonColor: "#d33",
       confirmButtonText: "¡Sí, elimínalo!",
       cancelButtonText: "Cancelar",
-    }) 
+    })
       .then((res) => {
         if (res.isConfirmed) {
           swalWithBootstrapButtons.fire(
@@ -75,25 +82,26 @@ function EditProducts({ name, price, type, id }) {
       });
   };
 
-  async function onChangeImg(event, setImgProduct) {
-    const uploadedImg = await event.target.files[0];
-    const fr = new FileReader();
-    fr.readAsDataURL(uploadedImg);
-    fr.onload = () => setImgProduct(fr.result);
-    return uploadedImg;
-  }
+  // async function onChangeImg(event, setImgProduct) {
+  //   const uploadedImg = await event.target.files[0];
+  //   const fr = new FileReader();
+  //   fr.readAsDataURL(uploadedImg);
+  //   fr.onload = () => setImgProduct(fr.result);
+  //   return uploadedImg;
+  // }
 
-  const imageProductChange = async (event) => {
-    const urlUpload = await onChangeImg(event, setImgProduct);
-    console.log("urlUpload", urlUpload);
-    const urlImage = await imageProducts(urlUpload);
-    setImgProduct(urlImage);
-  };
+  // const imageProductChange = async (event) => {
+  //   const urlUpload = await onChangeImg(event, setImgProduct);
+  //   console.log("urlUpload", urlUpload);
+  //   const urlImage = await imageProducts(urlUpload);
+  //   setImgProduct(urlImage);
+  //};
 
   return (
+    <>
     <td>
       <img
-        onClick={openModal}
+        onClick={handleShow}
         style={{ height: "20px", width: "20px" }}
         src={editar}
         alt="editar"
@@ -105,51 +113,63 @@ function EditProducts({ name, price, type, id }) {
         src={Delete}
         alt="delete"
       />
-      <div className={`modal ${isOpenModal && "modal-open"}`}>
-        <form className="formModal" onSubmit={handleSubmitProduct}>
-          <button className="closeModal" onClick={closeModal}>
-            X
-          </button>
-          <h1>Editar Producto</h1>
-          <label>Nombre</label>
-          <input
-            type="text"
-            name="name"
-            placeholder="Ingrese nombre del producto"
-            value={editDataProduct.name}
-            onChange={handleChangeProduct}
-            required
-          />
-          <label>Precio</label>
-          <input
-            type="number"
-            name="price"
-            placeholder="Ingrese precio"
-            value={editDataProduct.price}
-            onChange={handleChangeProduct}
-            required
-          />
-          {/* <label>Imagen</label>
-          <input
-            type="image"
-            placeholder="Ingrese imagen"
-            value={editDataProduct.image}
-            onChange={handleChangeProduct}
-            required
-          /> */}
-          <label>Tipo</label>
-          <input
-            type="text"
-            name="type"
-            placeholder="Ingrese tipo de producto"
-            value={editDataProduct.type}
-            onChange={handleChangeProduct}
-            required
-          />
-          <button>Finalizar</button>
-        </form>
-      </div>
-    </td>
+
+      <Modal show={show} onHide={handleClose}>
+        <Modal.Header closeButton>
+          <Modal.Title>Editar producto</Modal.Title>
+        </Modal.Header>
+        <Modal.Body>
+          <Form>
+          <Form.Group className="mb-2" controlId="exampleForm.ControlInput1">
+              <Form.Label>Nombre</Form.Label>
+              <Form.Control
+                type="text"
+                placeholder=""
+                name="name"
+                value={editDataProduct.name}
+                onChange={handleChangeProduct}
+                required
+              />
+              <Form.Label> Precio</Form.Label>
+              <Form.Control
+                type="text"
+                placeholder=""
+                name="price"
+                value={editDataProduct.price}
+                onChange={handleChangeProduct}
+                required
+              />
+            </Form.Group>
+            <Form.Group className="mb-2" controlId="exampleForm.ControlInput2">
+              <Form.Label>Imagen</Form.Label>
+              <Form.Control
+                type="email"
+                placeholder="Ingrese la imagen del producto"
+                onChange={handleChangeProduct}
+              />
+            </Form.Group>
+            <Form.Group className="mb-2" controlId="exampleForm.ControlInput3">
+              <Form.Label>Tipo</Form.Label>
+              <Form.Control
+                type="text"
+                name="type"
+                value={editDataProduct.type}
+                onChange={handleChangeProduct}
+                required
+              />
+            </Form.Group>
+          </Form>
+        </Modal.Body>
+        <Modal.Footer>
+          <Button variant="primary" onClick={handleSubmitProduct}>
+            Save Changes
+          </Button>
+        </Modal.Footer>
+      </Modal>
+      </td>
+    </>
+
+    
   );
 }
 

@@ -11,9 +11,8 @@ function CreateUsers({ admiGetUsers }) {
 
  const handleClose = () => setShow(false);
  const handleShow = () => setShow(true);
- // const [isOpenModal, openModal, closeModal] = useModal(false);
  const [newUser, setNewUser] = useState([
-   { email: "", password: "", role: "" },
+   { email: "",  role: "", password: ""},
  ]);
 
   function handleChange(e) {
@@ -25,7 +24,6 @@ function CreateUsers({ admiGetUsers }) {
 
  function handleSubmit(e) {
    e.preventDefault();
-   handleClose;
    createUser(newUser)
      .then((res) => {
        admiGetUsers();
@@ -54,36 +52,40 @@ function CreateUsers({ admiGetUsers }) {
        </Modal.Header>
        <Modal.Body>
          <Form>
-           <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
+           <Form.Group className="mb-2" controlId="exampleForm.ControlInput1">
              <Form.Label>Rol</Form.Label>
              <Form.Control
                type="text"
-               placeholder="waiter"
+               placeholder="Ingresa Rol"
+               name= "role"
+               value={newUser.role}
                onChange={handleChange}
-               autoFocus
+              
              />
            </Form.Group>
            <Form.Group
-             className="mb-3"
+             className="mb-2"
              controlId="exampleForm.ControlInput2"
            >
              <Form.Label>Correo</Form.Label>
              <Form.Control
                type="email"
                placeholder="name@example.com"
+               name= "email"
+               value={newUser.email}
                onChange={handleChange}
-               autoFocus
              />
            </Form.Group>
            <Form.Group
-             className="mb-3"
+             className="mb-2"
              controlId="exampleForm.ControlInput3"
            >
              <Form.Label>Contraseña</Form.Label>
              <Form.Control
                type="password"
+               name="password"
                onChange={handleChange}
-               autoFocus
+             
              />
            </Form.Group>
          </Form>
@@ -95,42 +97,7 @@ function CreateUsers({ admiGetUsers }) {
        </Modal.Footer>
      </Modal>
    </>
-   /*   <div className="containerCreateUser">
-     <h3 className="titleCreateUser">¿Nuevo Usuario?</h3>
-     <button className="btnCreateUser" onClick={openModal}>
-       Crear usuario
-     </button>
-     <div className={`modal ${isOpenModal && "modal-open"}`}>
-       <form className="formModal" onSubmit={handleSubmit}>
-         <button className="closeModal" onClick={closeModal} type="button">
-           X
-         </button>
-         <h1>Crear Usuario</h1>
-         <label>Role</label>
-         <input
-           type="text"
-           name="role"
-           placeholder=""
-           onChange={handleChange}
-         />
-         <label>Correo</label>
-         <input
-           type="email"
-           name="email"
-           placeholder=""
-           onChange={handleChange}
-         />
-         <label>Contraseña</label>
-         <input
-           type="password"
-           name="password"
-           placeholder=""
-           onChange={handleChange}
-         />
-         <button type="submit">Finalizar</button>
-       </form>
-     </div>
-   </div> */
+
  );
 }
 

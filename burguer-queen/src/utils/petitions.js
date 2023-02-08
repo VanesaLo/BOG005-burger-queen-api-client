@@ -45,10 +45,11 @@ const editUser = async (editDataUser) => {
     url: `${URLapi}users/${editDataUser.id}`,
     method: "PATCH",
     headers: {
-      // "content-type": "application/json",
+      //  "content-type": "application/json",
       authorization: `Bearer ${getToken()}`,
     },
     data: {
+      id: editDataUser.id, 
       email: editDataUser.email,
       role: editDataUser.role,
       password: editDataUser.password,
