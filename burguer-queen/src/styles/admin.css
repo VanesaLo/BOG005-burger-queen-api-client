@@ -63,22 +63,23 @@ a {
   margin-top: 10%;
   background-color: #fff;
   border-radius: 3%;
- 
 }
-
 
 .btnCreateUser {
   height: 3rem;
   width: 8rem;
-  border-radius: 13%;
-  border: none;
-  background-color: #ffde49;
+  border: none !important;
+  background-color: #ffde49 !important;
   font-size: medium;
+  color: black !important;
+  font-weight: bold !important;
+  display: flex !important;
+  align-items: center;
 }
 
 .titleCreateUser {
   color: #fff;
-  justify-content: center;
+  justify-content: center ;
 }
 
 .navAdmin {
@@ -107,6 +108,10 @@ a {
     display: flex;
     flex-direction: row;
     width: 100%;
+  }
+
+  .tableAdmin {
+    width: 20% !important;
   }
 
   /* #containerHeader {
