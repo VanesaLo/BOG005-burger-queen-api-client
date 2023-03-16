@@ -1,6 +1,5 @@
 import React, { useState } from "react";
-import Card from 'react-bootstrap/Card';
-
+import Card from "react-bootstrap/Card";
 
 function Menu({ admiGetProducts }) {
   const [showProducts, setShowProducts] = useState(admiGetProducts);
@@ -16,30 +15,30 @@ function Menu({ admiGetProducts }) {
   return (
     <>
       <section className="btnSectionFilter">
-        <button className="btnBreakfast" onClick={() => filterMenu("Desayuno")}>
-          Desayuno
+        <button
+          className="btnBreakfast"
+          onClick={() => filterMenu("Breakfast")}
+        >
+          Breakfast
         </button>
-        <button className="btnLunch" onClick={() => filterMenu("Almuerzo")}>
-          Almuerzo
+        <button className="btnLunch" onClick={() => filterMenu("Lunch")}>
+          Lunch
         </button>
       </section>
       <Card className="menu">
-      <Card.Title className="titleMenu"> Menú </Card.Title>
-      <Card.Body>
-      {showProducts.map((product) => (
-          <article key={product.id}>
-            <p>
-              {product.name} <span>${product.price}</span>
-            </p>
-          </article>
-        ))}
-
-      </Card.Body>
-    </Card>
+        <Card.Title className="titleMenu"> Menú </Card.Title>
+        <Card.Body>
+          {showProducts.map((product) => (
+            <article key={product.id}>
+              <p>
+                {product.name} <span>${product.price}</span>
+              </p>
+            </article>
+          ))}
+        </Card.Body>
+      </Card>
     </>
   );
 }
 
 export { Menu };
-
-

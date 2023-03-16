@@ -7,9 +7,7 @@ import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
 import Modal from "react-bootstrap/Modal";
 
-
 function EditUsers({ email, role, id, admiGetUsers }) {
-
   const [show, setShow] = useState(false);
 
   const handleClose = () => setShow(false);
@@ -49,9 +47,8 @@ function EditUsers({ email, role, id, admiGetUsers }) {
       });
   };
 
-
   const handleSubmitDeleteUser = () => {
-    deleteUser(id)
+    deleteUser(id);
     Swal.fire({
       title: "¿Estás seguro?",
       text: "¡No podrás deshacer esta acción!",
@@ -61,7 +58,7 @@ function EditUsers({ email, role, id, admiGetUsers }) {
       cancelButtonColor: "#d33",
       confirmButtonText: "¡Sí, elimínalo!",
       cancelButtonText: "Cancelar",
-    }) 
+    })
       .then((res) => {
         if (res.isConfirmed) {
           swalWithBootstrapButtons.fire(
@@ -104,7 +101,7 @@ function EditUsers({ email, role, id, admiGetUsers }) {
         </Modal.Header>
         <Modal.Body>
           <Form>
-          <Form.Group className="mb-2" controlId="exampleForm.ControlInput1">
+            <Form.Group className="mb-2" controlId="exampleForm.ControlInput1">
               <Form.Label>Role</Form.Label>
               <Form.Control
                 type="text"
@@ -126,11 +123,7 @@ function EditUsers({ email, role, id, admiGetUsers }) {
             </Form.Group>
             <Form.Group className="mb-2" controlId="exampleForm.ControlInput3">
               <Form.Label>Password</Form.Label>
-              <Form.Control
-                type="text"
-                name="password"
-                required
-              />
+              <Form.Control type="text" name="password" required />
             </Form.Group>
           </Form>
         </Modal.Body>
